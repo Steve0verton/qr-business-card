@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Contact Card Code Generator</title>
+</head>
+<body>
+  <h1>Contact Information</h1>
+  <form id="contactInfo">
+    <label for="inputData">Enter some data:</label>
+    <input type="text" id="inputData" name="inputData">
+    <button type="submit">Generate</button>
+  </form>
+  <hr>
+  <h1>Output</h1>
+  <pre id="qrContactCard"></pre>
+
+  <script>
+    // Get form and output elements
+    const form = document.getElementById('contactInfo');
+    const output = document.getElementById('qrContactCard');
+
+    // Event listener for form submission
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get the entered data from the input field
+      const data = document.getElementById('inputData').value;
+
+      // Output the data as plaintext
+      output.textContent = data;
+    });
+  </script>
+</body>
+</html>
