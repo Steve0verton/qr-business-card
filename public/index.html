@@ -49,7 +49,7 @@
       // Update Google API endpoint with contact card source code
       let contactQRcode = 
         'https://chart.googleapis.com/chart?cht=qr&chl=' +
-        htmlEncode(textContent.val()) +
+        htmlEncode(data.val()) +
         '&chs=160x160&chld=L|0'
 
       // Replace the src of the image with the QR code image
