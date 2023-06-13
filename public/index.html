@@ -1,33 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>QR Contact Card Code Generator</title>
+  <title>QR Code Generator for Contact Card</title>
 </head>
 <body>
-  <h1>Contact Information</h1>
+  <h1>Enter Contact Information</h1>
   <form id="contactInfo">
-    <label for="inputData">Enter some data:</label>
-    <input type="text" id="inputData" name="inputData">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName">
+    <br><br>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName">
+    <br><br>
+
     <button type="submit">Generate</button>
   </form>
   <hr>
   <h1>Output</h1>
-  <pre id="qrContactCard"></pre>
+  <h2>QR Code</h2>
+  <img src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0" class="qr-code" />
+  <h2>VCF Code Embedded</h2>
+  <pre id="contactQRsource"></pre>
 
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script>
     // Get form and output elements
     const form = document.getElementById('contactInfo');
-    const output = document.getElementById('qrContactCard');
+    const output = document.getElementById('contactQRsource');
+
+    function htmlEncode(value) {
+      return $('<div/>').text(value)
+        .html();
+    }
 
     // Event listener for form submission
     form.addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent form submission
 
-      // Get the entered data from the input field
-      const data = document.getElementById('inputData').value;
+      // Get the entered data from the form
+      const data = 
+        document.getElementById('firstName').value +
+        document.getElementById('lastName').value
 
       // Output the data as plaintext
       output.textContent = data;
+
+      // Update Google API endpoint with contact card source code
+      let contactQRcode = 
+        'https://chart.googleapis.com/chart?cht=qr&chl=' +
+        htmlEncode(textContent.val()) +
+        '&chs=160x160&chld=L|0'
+
+      // Replace the src of the image with the QR code image
+      $('.qr-code').attr('src', contactQRcode);
     });
   </script>
 </body>
