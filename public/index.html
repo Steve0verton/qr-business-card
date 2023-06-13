@@ -14,16 +14,24 @@
     <input type="text" id="lastName" name="lastName">
     <br><br>
 
+    <label for="org">Organization:</label>
+    <input type="text" id="org" name="org">
+    <br><br>
+
+    <label for="primaryNumber">Primary Phone Number:</label>
+    <input type="text" id="primaryNumber" name="primaryNumber">
+    <br><br>
+
     <button type="submit">Generate</button>
   </form>
 
   <hr>
 
-  <h1>Output</h1>
-  <h2>QR Code</h2>
-  <img src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0" class="qr-code" />
+  <h1>QR Code</h1>
+  <p>Right click to download and save QR code as an image.</p>
+  <img src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0" alt="QR Code" class="qr-code" />
 
-  <h2>VCF Code Embedded in QR Code</h2>
+  <h1>VCF Code Embedded in QR Code</h1>
   <pre id="contactQRsource"></pre>
 
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -40,8 +48,10 @@
       const data = 
         'BEGIN:VCARD' + '\n' +
         'VERSION:3.0' + '\n' +
-        document.getElementById('firstName').value + '\n' +
-        document.getElementById('lastName').value + '\n' +
+        'N:' + document.getElementById('lastName').value + ';' + document.getElementById('firstName').value + ';\n' +
+        'FN:' + document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value + '\n' +
+        'ORG:' + document.getElementById('org').value + ';\n' +
+        'TEL;TYPE=mobile;TYPE=pref:' + document.getElementById('primaryNumber').value + '\n' +
         'VERSION:3.0' + '\n' +
         'END:VCARD'
 
