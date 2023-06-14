@@ -135,6 +135,18 @@
     form.addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent form submission
 
+      // Initialize
+      lastName = "";
+      firstName = "";
+      org = "";
+      primaryNumber = "";
+      secondaryNumber = "";
+      primaryEmail = "";
+      secondaryEmail = "";
+      jobTitle = "";
+      website1 = "";
+      website2 = "";
+
       // Get the entered data from the form
       lastName = document.getElementById('lastName').value;
       firstName = document.getElementById('firstName').value;
