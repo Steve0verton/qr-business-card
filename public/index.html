@@ -136,11 +136,15 @@
       event.preventDefault(); // Prevent form submission
 
       // Get the entered data from the form
+      lastName = document.getElementById('lastName').value
+      firstName = document.getElementById('firstName').value
+
+      // Build VCF contact card source
       const data = 
         'BEGIN:VCARD' + '\n' +
         'VERSION:3.0' + '\n' +
-        'N:' + document.getElementById('lastName').value + ';' + document.getElementById('firstName').value + ';\n' +
-        'FN:' + document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value + '\n' +
+        'N:' + lastName && lastName + ';' + firstName && firstName + ';\n' +
+        'FN:' + firstName + ' ' + lastName + '\n' +
         'ORG:' + document.getElementById('org').value + ';\n' +
         'TEL;TYPE=mobile;TYPE=pref:' + document.getElementById('primaryNumber').value + '\n' +
         'TEL;TYPE=work:' + document.getElementById('secondaryNumber').value + '\n' +
