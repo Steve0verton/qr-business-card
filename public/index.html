@@ -19,12 +19,12 @@
 </head>
 <body>
   <div class="container-fluid">
-    <div class="row">
+    <div class="row row-no-gutters">
       <h1>Contact Information</h1>
-      <p>All fields must be filled in to build a QR code (future updates will make this easier).</p>
+      <p class="text-info">All fields must be filled in to build a QR code (future updates will make this easier).</p>
     </div>
 
-    <div class="row">
+    <div class="row row-no-gutters">
       <form id="contactInfo" class="form-horizontal">
         <div class="form-group">
           <label for="firstName" class="col-sm-2 control-label">First Name:</label>
@@ -97,26 +97,26 @@
         </div>
 
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default">Generate</button>
+          <button type="submit" class="btn btn-primary">Generate</button>
           <input type="reset" class="btn btn-default">
         </div>
 
       </form>
     </div>
 
-    <div class="row">
+    <div class="row row-no-gutters">
       <h1>QR Code</h1>
-      <p>Right click to download and save QR code as an image. Print QR code to use on business card or other shareable locations (ex: back of phone).</p>
+      <p class="text-info">Right click to download and save QR code as an image. Print QR code to use on business card or other shareable locations (ex: back of phone).</p>
       <img src="https://chart.googleapis.com/chart?cht=qr&chl=Generate+Contact+Info&chs=160x160&chld=L|0" alt="QR Code" class="qr-code" />
     </div>
 
-    <div class="row">
+    <div class="row row-no-gutters">
       <h1>QR Code Source</h1>
-      <p>The following code is embedded within the QR code above.  This code is VCF formatted for industry standard contact cards shared on most mainstream smart phones.</p>
+      <p class="text-info">The following code is embedded within the QR code above.  This code is VCF formatted for industry standard contact cards shared on most mainstream smart phones.</p>
       <pre id="contactQRsource"></pre>
     </div>
 
-    <div class="row">
+    <div class="row row-no-gutters">
       <h1>Reference</h1>
       <ul>
         <li><a href="https://github.com/Steve0verton/qr-business-card">Source Code</a></li>
