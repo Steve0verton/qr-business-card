@@ -25,51 +25,64 @@
     </div>
 
     <div class="row">
-      <form id="contactInfo">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required>
-        <br><br>
+      <form id="contactInfo" class="form-horizontal">
+        <div class="form-group">
+          <label for="firstName" class="col-sm-2 control-label">First Name:</label>
+          <div class="col-sm-10">
+            <input type="text" id="firstName" name="firstName" required>
+          </div>
+        </div>
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required>
-        <br><br>
+        <div class="form-group">
+          <label for="lastName" class="col-sm-2 control-label">Last Name:</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
 
-        <label for="org">Organization:</label>
-        <input type="text" id="org" name="org" required>
-        <br><br>
+        <div class="form-group">
+          <label for="org" class="col-sm-2 control-label">Organization:</label>
+          <input type="text" id="org" name="org" required>
+        </div>
 
-        <label for="primaryNumber">Primary Phone Number (Mobile):</label>
-        <input type="tel" id="primaryNumber" name="primaryNumber" required>
-        <br><br>
+        <div class="form-group">
+          <label for="primaryNumber" class="col-sm-2 control-label">Primary Phone Number (Mobile):</label>
+          <input type="tel" id="primaryNumber" name="primaryNumber" required>
+        </div>
         
-        <label for="secondaryNumber">Secondary Phone Number (Home):</label>
-        <input type="tel" id="secondaryNumber" name="secondaryNumber" required>
-        <br><br>
+        <div class="form-group">
+          <label for="secondaryNumber" class="col-sm-2 control-label">Secondary Phone Number (Home):</label>
+          <input type="tel" id="secondaryNumber" name="secondaryNumber" required>
+        </div>
 
-        <label for="workEmail">Work Email:</label>
-        <input type="email" id="workEmail" name="workEmail" required>
-        <br><br>
+        <div class="form-group">
+          <label for="workEmail" class="col-sm-2 control-label">Work Email:</label>
+          <input type="email" id="workEmail" name="workEmail" required>
+        </div>
 
-        <label for="homeEmail">Personal Email:</label>
-        <input type="email" id="homeEmail" name="homeEmail" required>
-        <br><br>
+        <div class="form-group">
+          <label for="homeEmail" class="col-sm-2 control-label">Personal Email:</label>
+          <input type="email" id="homeEmail" name="homeEmail" required>
+        </div>
 
-        <label for="jobTitle">Job Title:</label>
-        <input type="text" id="jobTitle" name="jobTitle" required>
-        <br><br>
+        <div class="form-group">
+          <label for="jobTitle" class="col-sm-2 control-label">Job Title:</label>
+          <input type="text" id="jobTitle" name="jobTitle" required>
+        </div>
 
-        <label for="website1">Website 1:</label>
-        <input type="url" id="website1" name="website1" required>
-        <br><br>
+        <div class="form-group">
+          <label for="website1" class="col-sm-2 control-label">Website 1:</label>
+          <input type="url" id="website1" name="website1" required placeholder="Enter URL (including https://)">
+        </div>
 
-        <label for="website2">Website 2:</label>
-        <input type="url" id="website2" name="website2" required>
-        <br><br>
+        <div class="form-group">
+          <label for="website2" class="col-sm-2 control-label">Website 2:</label>
+          <input type="url" id="website2" name="website2" required placeholder="Enter URL (including https://)">
+        </div>
 
-        <button type="submit" class="btn btn-default">Generate</button>
-        <input type="reset">
-        <br><br>
-        <a href="https://github.com/Steve0verton/qr-business-card">Source Code</a>
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default">Generate</button>
+          <input type="reset" class="btn btn-default">
+        </div>
+
       </form>
     </div>
 
@@ -83,6 +96,14 @@
       <h1>QR Code Source</h1>
       <p>The following code is embedded within the QR code above.  This code is VCF formatted for industry standard contact cards shared on most mainstream smart phones.</p>
       <pre id="contactQRsource"></pre>
+    </div>
+
+    <div class="row">
+      <h1>Reference</h1>
+      <ul>
+        <li><a href="https://github.com/Steve0verton/qr-business-card">Source Code</a></li>
+        <li><a href="https://www.linkedin.com/in/overton/">Author Contact</a></li>
+      </ul>
     </div>
   </div>
 
