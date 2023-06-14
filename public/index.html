@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Code Generator for Contact Card</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L5T9QTR11L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L5T9QTR11L');
+  </script>
+</head>
+<body>
+  <h1>Enter Contact Information</h1>
+  <p>All fields must be filled in to build a QR code (future updates will make this easier).</p>
+  <form id="contactInfo">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required>
+    <br><br>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required>
+    <br><br>
+
+    <label for="org">Organization:</label>
+    <input type="text" id="org" name="org" required>
+    <br><br>
+
+    <label for="primaryNumber">Primary Phone Number (Mobile):</label>
+    <input type="tel" id="primaryNumber" name="primaryNumber" required>
+    <br><br>
+    
+    <label for="secondaryNumber">Secondary Phone Number (Home):</label>
+    <input type="tel" id="secondaryNumber" name="secondaryNumber" required>
+    <br><br>
+
+    <label for="workEmail">Work Email:</label>
+    <input type="email" id="workEmail" name="workEmail" required>
+    <br><br>
+
+    <label for="homeEmail">Personal Email:</label>
+    <input type="email" id="homeEmail" name="homeEmail" required>
+    <br><br>
+
+    <label for="jobTitle">Job Title:</label>
+    <input type="text" id="jobTitle" name="jobTitle" required>
+    <br><br>
+
+    <label for="website1">Website 1:</label>
+    <input type="url" id="website1" name="website1" required>
+    <br><br>
+
+    <label for="website2">Website 2:</label>
+    <input type="url" id="website2" name="website2" required>
+    <br><br>
+
+    <button type="submit">Generate</button>
+    <input type="reset">
+    <br><br>
+    <a href="https://github.com/Steve0verton/qr-business-card">Source Code</a>
+  </form>
+
+  <hr>
+
+  <h1>QR Code</h1>
+  <p>Right click to download and save QR code as an image.</p>
+  <img src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0" alt="QR Code" class="qr-code" />
+
+  <h1>VCF Code Embedded in QR Code</h1>
+  <pre id="contactQRsource"></pre>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script>
+    // Get form and output elements
+    const form = document.getElementById('contactInfo');
+    const output = document.getElementById('contactQRsource');
+
+    // Event listener for form submission
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get the entered data from the form
+      const data = 
+        'BEGIN:VCARD' + '\n' +
+        'VERSION:3.0' + '\n' +
+        'N:' + document.getElementById('lastName').value + ';' + document.getElementById('firstName').value + ';\n' +
+        'FN:' + document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value + '\n' +
+        'ORG:' + document.getElementById('org').value + ';\n' +
+        'TEL;TYPE=mobile;TYPE=pref:' + document.getElementById('primaryNumber').value + '\n' +
+        'TEL;TYPE=home:' + document.getElementById('secondaryNumber').value + '\n' +
+        'EMAIL;TYPE=INTERNET;TYPE=WORK:' + document.getElementById('workEmail').value + '\n' +
+        'EMAIL;TYPE=INTERNET;TYPE=HOME:' + document.getElementById('homeEmail').value + '\n' +
+        'TITLE:' + document.getElementById('jobTitle').value + '\n' +
+        'URL:' + document.getElementById('website1').value + '\n' +
+        'URL:' + document.getElementById('website2').value + '\n' +
+        'VERSION:3.0' + '\n' +
+        'END:VCARD'
+
+      // Output the data as plaintext
+      output.textContent = data;
+
+      // Update Google API endpoint with contact card source code
+      let contactQRcode = 
+        'https://chart.googleapis.com/chart?cht=qr&chl=' +
+        encodeURI(data) +
+        '&chs=160x160&chld=L|0'
+
+      // Replace the src of the image with the QR code image
+      $('.qr-code').attr('src', contactQRcode);
+    });
+  </script>
+</body>
+</html>
