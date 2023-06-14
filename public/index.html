@@ -147,22 +147,41 @@
       website1 = document.getElementById('website1').value
       website2 = document.getElementById('website2').value
 
+      // Build pieces of VCF contact source conditionally
+      // Header is always the same
+      vcfHeader = 'BEGIN:VCARD' + '\n' + 'VERSION:3.0' + '\n'
+
+      // Both first and last name are required and do not require checks
+      vcfName = 
+        'N:' + lastName + ';' + firstName + ';\n' +
+        'FN:' + firstName + ' ' + lastName + '\n'
+      
+      // Organization, phone numbers, emails and URLs can be null
+      if (vcfOrg) { vcfOrg = 'ORG:' + org + ';\n' }
+      if (vcfTel1) { vcfTel1 = 'TEL;TYPE=mobile;TYPE=pref:' + primaryNumber + '\n' }
+      if (vcfTel2) { vcfTel2 = 'TEL;TYPE=work:' + secondaryNumber + '\n' }
+      if (vcfEmail1) { vcfEmail1 = 'EMAIL;TYPE=INTERNET;TYPE=WORK:' + primaryEmail + '\n' }
+      if (vcfEmail2) { vcfEmail2 = 'EMAIL;TYPE=INTERNET;TYPE=HOME:' + secondaryEmail + '\n' }
+      if (vcfTitle) { vcfTitle = 'TITLE:' + jobTitle + '\n' }
+      if (vcfUrl1) { vcfUrl1 = 'URL:' + website1 + '\n' }
+      if (vcfUrl2) { vcfUrl2 = 'URL:' + website2 + '\n' }
+
+      // Footer is always the same
+      vcfFooter = 'VERSION:3.0' + '\n' + 'END:VCARD'
+
       // Build VCF contact card source
       const data = 
-        'BEGIN:VCARD' + '\n' +
-        'VERSION:3.0' + '\n' +
-        'N:' + lastName + ';' + firstName + ';\n' +
-        'FN:' + firstName + ' ' + lastName + '\n' +
-        'ORG:' + org + ';\n' +
-        'TEL;TYPE=mobile;TYPE=pref:' + primaryNumber + '\n' +
-        'TEL;TYPE=work:' + secondaryNumber + '\n' +
-        'EMAIL;TYPE=INTERNET;TYPE=WORK:' + primaryEmail + '\n' +
-        'EMAIL;TYPE=INTERNET;TYPE=HOME:' + secondaryEmail + '\n' +
-        'TITLE:' + jobTitle + '\n' +
-        'URL:' + website1 + '\n' +
-        'URL:' + website2 + '\n' +
-        'VERSION:3.0' + '\n' +
-        'END:VCARD'
+        vcfHeader +
+        vcfName +
+        vcfOrg +
+        vcfTel1 +
+        vcfTel2 +
+        vcfEmail1 +
+        vcfEmail2 +
+        vcfTitle +
+        vcfUrl1 +
+        vcfUrl2 +
+        vcfFooter
 
       // Output the data as plaintext
       output.textContent = data;
