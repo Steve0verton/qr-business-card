@@ -20,7 +20,7 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <h1>Enter Contact Information</h1>
+      <h1>Contact Information</h1>
       <p>All fields must be filled in to build a QR code (future updates will make this easier).</p>
     </div>
 
@@ -29,53 +29,71 @@
         <div class="form-group">
           <label for="firstName" class="col-sm-2 control-label">First Name:</label>
           <div class="col-sm-10">
-            <input type="text" id="firstName" name="firstName" required>
+            <input class="form-control" type="text" id="firstName" name="firstName" required>
           </div>
         </div>
 
         <div class="form-group">
           <label for="lastName" class="col-sm-2 control-label">Last Name:</label>
-          <input type="text" id="lastName" name="lastName" required>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" id="lastName" name="lastName" required>
+          </div>
         </div>
 
         <div class="form-group">
           <label for="org" class="col-sm-2 control-label">Organization:</label>
-          <input type="text" id="org" name="org" required>
-        </div>
-
-        <div class="form-group">
-          <label for="primaryNumber" class="col-sm-2 control-label">Primary Phone Number (Mobile):</label>
-          <input type="tel" id="primaryNumber" name="primaryNumber" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="secondaryNumber" class="col-sm-2 control-label">Secondary Phone Number (Home):</label>
-          <input type="tel" id="secondaryNumber" name="secondaryNumber" required>
-        </div>
-
-        <div class="form-group">
-          <label for="workEmail" class="col-sm-2 control-label">Work Email:</label>
-          <input type="email" id="workEmail" name="workEmail" required>
-        </div>
-
-        <div class="form-group">
-          <label for="homeEmail" class="col-sm-2 control-label">Personal Email:</label>
-          <input type="email" id="homeEmail" name="homeEmail" required>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" id="org" name="org" required>
+          </div>
         </div>
 
         <div class="form-group">
           <label for="jobTitle" class="col-sm-2 control-label">Job Title:</label>
-          <input type="text" id="jobTitle" name="jobTitle" required>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" id="jobTitle" name="jobTitle" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="primaryNumber" class="col-sm-2 control-label">Primary Phone Number (Created as Mobile):</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="tel" id="primaryNumber" name="primaryNumber" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="secondaryNumber" class="col-sm-2 control-label">Secondary Phone Number (Created as Work):</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="tel" id="secondaryNumber" name="secondaryNumber" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="workEmail" class="col-sm-2 control-label">Work Email:</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="email" id="workEmail" name="workEmail" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="personalEmail" class="col-sm-2 control-label">Personal Email:</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="email" id="personalEmail" name="personalEmail" required>
+          </div>
         </div>
 
         <div class="form-group">
           <label for="website1" class="col-sm-2 control-label">Website 1:</label>
-          <input type="url" id="website1" name="website1" required placeholder="Enter URL (including https://)">
+          <div class="col-sm-10">
+            <input class="form-control" type="url" id="website1" name="website1" required placeholder="Enter valid URL (including https://)">
+          </div>
         </div>
 
         <div class="form-group">
           <label for="website2" class="col-sm-2 control-label">Website 2:</label>
-          <input type="url" id="website2" name="website2" required placeholder="Enter URL (including https://)">
+          <div class="col-sm-10">
+            <input class="form-control" type="url" id="website2" name="website2" required placeholder="Enter valid URL (including https://)">
+          </div>
         </div>
 
         <div class="col-sm-offset-2 col-sm-10">
@@ -88,7 +106,7 @@
 
     <div class="row">
       <h1>QR Code</h1>
-      <p>Right click to download and save QR code as an image.</p>
+      <p>Right click to download and save QR code as an image. Print QR code to use on business card or other shareable locations (ex: back of phone).</p>
       <img src="https://chart.googleapis.com/chart?cht=qr&chl=Generate+Contact+Info&chs=160x160&chld=L|0" alt="QR Code" class="qr-code" />
     </div>
 
@@ -125,9 +143,9 @@
         'FN:' + document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value + '\n' +
         'ORG:' + document.getElementById('org').value + ';\n' +
         'TEL;TYPE=mobile;TYPE=pref:' + document.getElementById('primaryNumber').value + '\n' +
-        'TEL;TYPE=home:' + document.getElementById('secondaryNumber').value + '\n' +
+        'TEL;TYPE=work:' + document.getElementById('secondaryNumber').value + '\n' +
         'EMAIL;TYPE=INTERNET;TYPE=WORK:' + document.getElementById('workEmail').value + '\n' +
-        'EMAIL;TYPE=INTERNET;TYPE=HOME:' + document.getElementById('homeEmail').value + '\n' +
+        'EMAIL;TYPE=INTERNET;TYPE=HOME:' + document.getElementById('personalEmail').value + '\n' +
         'TITLE:' + document.getElementById('jobTitle').value + '\n' +
         'URL:' + document.getElementById('website1').value + '\n' +
         'URL:' + document.getElementById('website2').value + '\n' +
