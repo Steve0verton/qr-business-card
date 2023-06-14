@@ -43,56 +43,56 @@
         <div class="form-group">
           <label for="org" class="col-sm-2 control-label">Organization:</label>
           <div class="col-sm-10">
-            <input class="form-control" type="text" id="org" name="org" required>
+            <input class="form-control" type="text" id="org" name="org">
           </div>
         </div>
 
         <div class="form-group">
           <label for="jobTitle" class="col-sm-2 control-label">Job Title:</label>
           <div class="col-sm-10">
-            <input class="form-control" type="text" id="jobTitle" name="jobTitle" required>
+            <input class="form-control" type="text" id="jobTitle" name="jobTitle">
           </div>
         </div>
 
         <div class="form-group">
           <label for="primaryNumber" class="col-sm-2 control-label">Primary Phone Number (Created as Mobile):</label>
           <div class="col-sm-10">
-            <input class="form-control" type="tel" id="primaryNumber" name="primaryNumber" required>
+            <input class="form-control" type="tel" id="primaryNumber" name="primaryNumber">
           </div>
         </div>
         
         <div class="form-group">
           <label for="secondaryNumber" class="col-sm-2 control-label">Secondary Phone Number (Created as Work):</label>
           <div class="col-sm-10">
-            <input class="form-control" type="tel" id="secondaryNumber" name="secondaryNumber" required>
+            <input class="form-control" type="tel" id="secondaryNumber" name="secondaryNumber">
           </div>
         </div>
 
         <div class="form-group">
-          <label for="workEmail" class="col-sm-2 control-label">Work Email:</label>
+          <label for="primaryEmail" class="col-sm-2 control-label">Work Email:</label>
           <div class="col-sm-10">
-            <input class="form-control" type="email" id="workEmail" name="workEmail" required>
+            <input class="form-control" type="email" id="primaryEmail" name="primaryEmail">
           </div>
         </div>
 
         <div class="form-group">
-          <label for="personalEmail" class="col-sm-2 control-label">Personal Email:</label>
+          <label for="secondaryEmail" class="col-sm-2 control-label">Personal Email:</label>
           <div class="col-sm-10">
-            <input class="form-control" type="email" id="personalEmail" name="personalEmail" required>
+            <input class="form-control" type="email" id="secondaryEmail" name="secondaryEmail">
           </div>
         </div>
 
         <div class="form-group">
           <label for="website1" class="col-sm-2 control-label">Website 1:</label>
           <div class="col-sm-10">
-            <input class="form-control" type="url" id="website1" name="website1" required placeholder="Enter valid URL (including https://)">
+            <input class="form-control" type="url" id="website1" name="website1" placeholder="Enter valid URL (including https://)">
           </div>
         </div>
 
         <div class="form-group">
           <label for="website2" class="col-sm-2 control-label">Website 2:</label>
           <div class="col-sm-10">
-            <input class="form-control" type="url" id="website2" name="website2" required placeholder="Enter valid URL (including https://)">
+            <input class="form-control" type="url" id="website2" name="website2" placeholder="Enter valid URL (including https://)">
           </div>
         </div>
 
@@ -138,6 +138,14 @@
       // Get the entered data from the form
       lastName = document.getElementById('lastName').value
       firstName = document.getElementById('firstName').value
+      org = document.getElementById('org').value
+      primaryNumber = document.getElementById('primaryNumber').value
+      secondaryNumber = document.getElementById('secondaryNumber').value
+      primaryEmail = document.getElementById('primaryEmail').value
+      secondaryEmail = document.getElementById('secondaryEmail').value
+      jobTitle = document.getElementById('jobTitle').value
+      website1 = document.getElementById('website1').value
+      website2 = document.getElementById('website2').value
 
       // Build VCF contact card source
       const data = 
@@ -145,14 +153,14 @@
         'VERSION:3.0' + '\n' +
         'N:' + lastName + ';' + firstName + ';\n' +
         'FN:' + firstName + ' ' + lastName + '\n' +
-        'ORG:' + document.getElementById('org').value + ';\n' +
-        'TEL;TYPE=mobile;TYPE=pref:' + document.getElementById('primaryNumber').value + '\n' +
-        'TEL;TYPE=work:' + document.getElementById('secondaryNumber').value + '\n' +
-        'EMAIL;TYPE=INTERNET;TYPE=WORK:' + document.getElementById('workEmail').value + '\n' +
-        'EMAIL;TYPE=INTERNET;TYPE=HOME:' + document.getElementById('personalEmail').value + '\n' +
-        'TITLE:' + document.getElementById('jobTitle').value + '\n' +
-        'URL:' + document.getElementById('website1').value + '\n' +
-        'URL:' + document.getElementById('website2').value + '\n' +
+        'ORG:' + org + ';\n' +
+        'TEL;TYPE=mobile;TYPE=pref:' + primaryNumber + '\n' +
+        'TEL;TYPE=work:' + secondaryNumber + '\n' +
+        'EMAIL;TYPE=INTERNET;TYPE=WORK:' + primaryEmail + '\n' +
+        'EMAIL;TYPE=INTERNET;TYPE=HOME:' + secondaryEmail + '\n' +
+        'TITLE:' + jobTitle + '\n' +
+        'URL:' + website1 + '\n' +
+        'URL:' + website2 + '\n' +
         'VERSION:3.0' + '\n' +
         'END:VCARD'
 
