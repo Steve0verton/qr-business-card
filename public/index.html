@@ -28,19 +28,19 @@
     <br><br>
 
     <label for="primaryNumber">Primary Phone Number (Mobile):</label>
-    <input type="text" id="primaryNumber" name="primaryNumber">
+    <input type="tel" id="primaryNumber" name="primaryNumber" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
     <br><br>
-
+123
     <label for="secondaryNumber">Secondary Phone Number (Home):</label>
-    <input type="text" id="secondaryNumber" name="secondaryNumber">
+    <input type="tel" id="secondaryNumber" name="secondaryNumber" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
     <br><br>
 
     <label for="workEmail">Work Email:</label>
-    <input type="text" id="workEmail" name="workEmail">
+    <input type="email" id="workEmail" name="workEmail">
     <br><br>
 
     <label for="homeEmail">Personal Email:</label>
-    <input type="text" id="homeEmail" name="homeEmail">
+    <input type="email" id="homeEmail" name="homeEmail">
     <br><br>
 
     <label for="jobTitle">Job Title:</label>
@@ -48,14 +48,15 @@
     <br><br>
 
     <label for="website1">Website 1:</label>
-    <input type="text" id="website1" name="website1">
+    <input type="url" id="website1" name="website1">
     <br><br>
 
     <label for="website2">Website 2:</label>
-    <input type="text" id="website2" name="website2">
+    <input type="url" id="website2" name="website2">
     <br><br>
 
     <button type="submit">Generate</button>
+    <input type="reset">
     <br><br>
     <a href="https://github.com/Steve0verton/qr-business-card">Source Code</a>
   </form>

@@ -4,6 +4,7 @@ This project contains source code and a basic HTML page to generate a business c
 
 ## Table of Contents
 - [Contact Syntax](#contact-syntax)
+- [Author Contact](#author-contact)
 
 ## Contact Syntax
 
