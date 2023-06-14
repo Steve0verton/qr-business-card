@@ -157,15 +157,15 @@
         'FN:' + firstName + ' ' + lastName + '\n'
       
       // Organization, phone numbers, emails and URLs can be null
-      // Initialize
-      var vcfOrg = null
-      var vcfTel1 = null
-      var vcfTel2 = null
-      var vcfEmail1 = null
-      var vcfEmail2 = null
-      var vcfTitle = null
-      var vcfUrl1 = null
-      var vcfUrl2 = null
+      // Initialize as empty string
+      var vcfOrg = ""
+      var vcfTel1 = ""
+      var vcfTel2 = ""
+      var vcfEmail1 = ""
+      var vcfEmail2 = ""
+      var vcfTitle = ""
+      var vcfUrl1 = ""
+      var vcfUrl2 = ""
       // If values are empty they will be left null
       if (vcfOrg) { vcfOrg = 'ORG:' + org + ';\n' }
       if (vcfTel1) { vcfTel1 = 'TEL;TYPE=mobile;TYPE=pref:' + primaryNumber + '\n' }
