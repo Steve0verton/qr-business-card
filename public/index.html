@@ -136,48 +136,48 @@
       event.preventDefault(); // Prevent form submission
 
       // Get the entered data from the form
-      lastName = document.getElementById('lastName').value
-      firstName = document.getElementById('firstName').value
-      org = document.getElementById('org').value
-      primaryNumber = document.getElementById('primaryNumber').value
-      secondaryNumber = document.getElementById('secondaryNumber').value
-      primaryEmail = document.getElementById('primaryEmail').value
-      secondaryEmail = document.getElementById('secondaryEmail').value
-      jobTitle = document.getElementById('jobTitle').value
-      website1 = document.getElementById('website1').value
-      website2 = document.getElementById('website2').value
+      lastName = document.getElementById('lastName').value;
+      firstName = document.getElementById('firstName').value;
+      org = document.getElementById('org').value;
+      primaryNumber = document.getElementById('primaryNumber').value;
+      secondaryNumber = document.getElementById('secondaryNumber').value;
+      primaryEmail = document.getElementById('primaryEmail').value;
+      secondaryEmail = document.getElementById('secondaryEmail').value;
+      jobTitle = document.getElementById('jobTitle').value;
+      website1 = document.getElementById('website1').value;
+      website2 = document.getElementById('website2').value;
 
       // Build pieces of VCF contact source conditionally
       // Header is always the same
-      vcfHeader = 'BEGIN:VCARD' + '\n' + 'VERSION:3.0' + '\n'
+      vcfHeader = 'BEGIN:VCARD' + '\n' + 'VERSION:3.0' + '\n';
 
       // Both first and last name are required and do not require checks
       vcfName = 
-        'N:' + lastName + ';' + firstName + ';\n' +
-        'FN:' + firstName + ' ' + lastName + '\n'
+        'N:' + trim(lastName) + ';' + trim(firstName) + ';\n' +
+        'FN:' + trim(firstName) + ' ' + trim(lastName) + '\n';
       
       // Organization, phone numbers, emails and URLs can be null
       // Initialize as empty string
-      var vcfOrg = ""
-      var vcfTel1 = ""
-      var vcfTel2 = ""
-      var vcfEmail1 = ""
-      var vcfEmail2 = ""
-      var vcfTitle = ""
-      var vcfUrl1 = ""
-      var vcfUrl2 = ""
+      var vcfOrg = "";
+      var vcfTel1 = "";
+      var vcfTel2 = "";
+      var vcfEmail1 = "";
+      var vcfEmail2 = "";
+      var vcfTitle = "";
+      var vcfUrl1 = "";
+      var vcfUrl2 = "";
       // If values are empty they will be left null
-      if (vcfOrg) { vcfOrg = 'ORG:' + org + ';\n' }
-      if (vcfTel1) { vcfTel1 = 'TEL;TYPE=mobile;TYPE=pref:' + primaryNumber + '\n' }
-      if (vcfTel2) { vcfTel2 = 'TEL;TYPE=work:' + secondaryNumber + '\n' }
-      if (vcfEmail1) { vcfEmail1 = 'EMAIL;TYPE=INTERNET;TYPE=WORK:' + primaryEmail + '\n' }
-      if (vcfEmail2) { vcfEmail2 = 'EMAIL;TYPE=INTERNET;TYPE=HOME:' + secondaryEmail + '\n' }
-      if (vcfTitle) { vcfTitle = 'TITLE:' + jobTitle + '\n' }
-      if (vcfUrl1) { vcfUrl1 = 'URL:' + website1 + '\n' }
-      if (vcfUrl2) { vcfUrl2 = 'URL:' + website2 + '\n' }
+      if (vcfOrg) { vcfOrg = 'ORG:' + trim(org)+ ';\n' };
+      if (vcfTel1) { vcfTel1 = 'TEL;TYPE=mobile;TYPE=pref:' + trim(primaryNumber) + '\n' };
+      if (vcfTel2) { vcfTel2 = 'TEL;TYPE=work:' + trim(secondaryNumber) + '\n' };
+      if (vcfEmail1) { vcfEmail1 = 'EMAIL;TYPE=INTERNET;TYPE=WORK:' + trim(primaryEmail) + '\n' };
+      if (vcfEmail2) { vcfEmail2 = 'EMAIL;TYPE=INTERNET;TYPE=HOME:' + trim(secondaryEmail) + '\n' };
+      if (vcfTitle) { vcfTitle = 'TITLE:' + trim(jobTitle) + '\n' };
+      if (vcfUrl1) { vcfUrl1 = 'URL:' + trim(website1) + '\n' };
+      if (vcfUrl2) { vcfUrl2 = 'URL:' + trim(website2) + '\n' };
 
       // Footer is always the same
-      vcfFooter = 'VERSION:3.0' + '\n' + 'END:VCARD'
+      vcfFooter = 'VERSION:3.0' + '\n' + 'END:VCARD';
 
       // Build VCF contact card source
       const data = 
@@ -191,7 +191,7 @@
         vcfTitle +
         vcfUrl1 +
         vcfUrl2 +
-        vcfFooter
+        vcfFooter;
 
       // Output the data as plaintext
       output.textContent = data;
@@ -200,7 +200,7 @@
       let contactQRcode = 
         'https://chart.googleapis.com/chart?cht=qr&chl=' +
         encodeURI(data) +
-        '&chs=160x160&chld=L|0'
+        '&chs=160x160&chld=L|0';
 
       // Replace the src of the image with the QR code image
       $('.qr-code').attr('src', contactQRcode);
