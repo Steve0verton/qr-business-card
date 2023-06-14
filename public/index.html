@@ -27,11 +27,37 @@
     <input type="text" id="org" name="org">
     <br><br>
 
-    <label for="primaryNumber">Primary Phone Number:</label>
+    <label for="primaryNumber">Primary Phone Number (Mobile):</label>
     <input type="text" id="primaryNumber" name="primaryNumber">
     <br><br>
 
+    <label for="secondaryNumber">Secondary Phone Number (Home):</label>
+    <input type="text" id="secondaryNumber" name="secondaryNumber">
+    <br><br>
+
+    <label for="workEmail">Work Email:</label>
+    <input type="text" id="workEmail" name="workEmail">
+    <br><br>
+
+    <label for="homeEmail">Personal Email:</label>
+    <input type="text" id="homeEmail" name="homeEmail">
+    <br><br>
+
+    <label for="jobTitle">Job Title:</label>
+    <input type="text" id="jobTitle" name="jobTitle">
+    <br><br>
+
+    <label for="website1">Website 1:</label>
+    <input type="text" id="website1" name="website1">
+    <br><br>
+
+    <label for="website2">Website 2:</label>
+    <input type="text" id="website2" name="website2">
+    <br><br>
+
     <button type="submit">Generate</button>
+    <br><br>
+    <a href="https://github.com/Steve0verton/qr-business-card">Source Code</a>
   </form>
 
   <hr>
@@ -61,6 +87,12 @@
         'FN:' + document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value + '\n' +
         'ORG:' + document.getElementById('org').value + ';\n' +
         'TEL;TYPE=mobile;TYPE=pref:' + document.getElementById('primaryNumber').value + '\n' +
+        'TEL;TYPE=home:' + document.getElementById('secondaryNumber').value + '\n' +
+        'EMAIL;TYPE=INTERNET;TYPE=WORK:' + document.getElementById('workEmail').value + '\n' +
+        'EMAIL;TYPE=INTERNET;TYPE=HOME:' + document.getElementById('homeEmail').value + '\n' +
+        'TITLE:' + document.getElementById('jobTitle').value + '\n' +
+        'URL:' + document.getElementById('website1').value + '\n' +
+        'URL:' + document.getElementById('website2').value + '\n' +
         'VERSION:3.0' + '\n' +
         'END:VCARD'
 
