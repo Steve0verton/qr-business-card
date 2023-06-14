@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>QR Code Generator for Contact Card</title>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L5T9QTR11L"></script>
   <script>
@@ -11,65 +12,79 @@
 
     gtag('config', 'G-L5T9QTR11L');
   </script>
+
+  <!-- Bootstrapped CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <h1>Enter Contact Information</h1>
-  <p>All fields must be filled in to build a QR code (future updates will make this easier).</p>
-  <form id="contactInfo">
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" name="firstName" required>
-    <br><br>
+  <div class="container-fluid">
+    <div class="row">
+      <h1>Enter Contact Information</h1>
+      <p>All fields must be filled in to build a QR code (future updates will make this easier).</p>
+    </div>
 
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" name="lastName" required>
-    <br><br>
+    <div class="row">
+      <form id="contactInfo">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+        <br><br>
 
-    <label for="org">Organization:</label>
-    <input type="text" id="org" name="org" required>
-    <br><br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+        <br><br>
 
-    <label for="primaryNumber">Primary Phone Number (Mobile):</label>
-    <input type="tel" id="primaryNumber" name="primaryNumber" required>
-    <br><br>
-    
-    <label for="secondaryNumber">Secondary Phone Number (Home):</label>
-    <input type="tel" id="secondaryNumber" name="secondaryNumber" required>
-    <br><br>
+        <label for="org">Organization:</label>
+        <input type="text" id="org" name="org" required>
+        <br><br>
 
-    <label for="workEmail">Work Email:</label>
-    <input type="email" id="workEmail" name="workEmail" required>
-    <br><br>
+        <label for="primaryNumber">Primary Phone Number (Mobile):</label>
+        <input type="tel" id="primaryNumber" name="primaryNumber" required>
+        <br><br>
+        
+        <label for="secondaryNumber">Secondary Phone Number (Home):</label>
+        <input type="tel" id="secondaryNumber" name="secondaryNumber" required>
+        <br><br>
 
-    <label for="homeEmail">Personal Email:</label>
-    <input type="email" id="homeEmail" name="homeEmail" required>
-    <br><br>
+        <label for="workEmail">Work Email:</label>
+        <input type="email" id="workEmail" name="workEmail" required>
+        <br><br>
 
-    <label for="jobTitle">Job Title:</label>
-    <input type="text" id="jobTitle" name="jobTitle" required>
-    <br><br>
+        <label for="homeEmail">Personal Email:</label>
+        <input type="email" id="homeEmail" name="homeEmail" required>
+        <br><br>
 
-    <label for="website1">Website 1:</label>
-    <input type="url" id="website1" name="website1" required>
-    <br><br>
+        <label for="jobTitle">Job Title:</label>
+        <input type="text" id="jobTitle" name="jobTitle" required>
+        <br><br>
 
-    <label for="website2">Website 2:</label>
-    <input type="url" id="website2" name="website2" required>
-    <br><br>
+        <label for="website1">Website 1:</label>
+        <input type="url" id="website1" name="website1" required>
+        <br><br>
 
-    <button type="submit">Generate</button>
-    <input type="reset">
-    <br><br>
-    <a href="https://github.com/Steve0verton/qr-business-card">Source Code</a>
-  </form>
+        <label for="website2">Website 2:</label>
+        <input type="url" id="website2" name="website2" required>
+        <br><br>
 
-  <hr>
+        <button type="submit" class="btn btn-default">Generate</button>
+        <input type="reset">
+        <br><br>
+        <a href="https://github.com/Steve0verton/qr-business-card">Source Code</a>
+      </form>
+    </div>
 
-  <h1>QR Code</h1>
-  <p>Right click to download and save QR code as an image.</p>
-  <img src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0" alt="QR Code" class="qr-code" />
+    <div class="row">
+      <h1>QR Code</h1>
+      <p>Right click to download and save QR code as an image.</p>
+      <img src="https://chart.googleapis.com/chart?cht=qr&chl=Generate+Contact+Info&chs=160x160&chld=L|0" alt="QR Code" class="qr-code" />
+    </div>
 
-  <h1>VCF Code Embedded in QR Code</h1>
-  <pre id="contactQRsource"></pre>
+    <div class="row">
+      <h1>QR Code Source</h1>
+      <p>The following code is embedded within the QR code above.  This code is VCF formatted for industry standard contact cards shared on most mainstream smart phones.</p>
+      <pre id="contactQRsource"></pre>
+    </div>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script>
