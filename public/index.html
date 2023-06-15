@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>QR Code Generator for Contact Card</title>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L5T9QTR11L"></script>
   <script>
@@ -11,65 +12,121 @@
 
     gtag('config', 'G-L5T9QTR11L');
   </script>
+
+  <!-- Bootstrapped CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
-  <h1>Enter Contact Information</h1>
-  <p>All fields must be filled in to build a QR code (future updates will make this easier).</p>
-  <form id="contactInfo">
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" name="firstName" required>
-    <br><br>
+  <div class="container-fluid">
+    <div class="row">
+      <h1>Contact Information</h1>
+      <p>First and last name must be filled in at the minimum to build a QR code. Other fields can be left blank as needed. Fields with values will be included in the generated QR code.</p>
+    </div>
 
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" name="lastName" required>
-    <br><br>
+    <div class="row">
+      <form id="contactInfo" class="form-horizontal">
+        <div class="form-group">
+          <label for="firstName" class="col-sm-2 control-label">First Name (Required):</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" id="firstName" name="firstName" required>
+          </div>
+        </div>
 
-    <label for="org">Organization:</label>
-    <input type="text" id="org" name="org" required>
-    <br><br>
+        <div class="form-group">
+          <label for="lastName" class="col-sm-2 control-label">Last Name (Required):</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" id="lastName" name="lastName" required>
+          </div>
+        </div>
 
-    <label for="primaryNumber">Primary Phone Number (Mobile):</label>
-    <input type="tel" id="primaryNumber" name="primaryNumber" required>
-    <br><br>
-    
-    <label for="secondaryNumber">Secondary Phone Number (Home):</label>
-    <input type="tel" id="secondaryNumber" name="secondaryNumber" required>
-    <br><br>
+        <div class="form-group">
+          <label for="org" class="col-sm-2 control-label">Organization:</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" id="org" name="org">
+          </div>
+        </div>
 
-    <label for="workEmail">Work Email:</label>
-    <input type="email" id="workEmail" name="workEmail" required>
-    <br><br>
+        <div class="form-group">
+          <label for="jobTitle" class="col-sm-2 control-label">Job Title:</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" id="jobTitle" name="jobTitle">
+          </div>
+        </div>
 
-    <label for="homeEmail">Personal Email:</label>
-    <input type="email" id="homeEmail" name="homeEmail" required>
-    <br><br>
+        <div class="form-group">
+          <label for="primaryNumber" class="col-sm-2 control-label">Primary Phone Number (Created as Mobile):</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="tel" id="primaryNumber" name="primaryNumber">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="secondaryNumber" class="col-sm-2 control-label">Secondary Phone Number (Created as Work):</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="tel" id="secondaryNumber" name="secondaryNumber">
+          </div>
+        </div>
 
-    <label for="jobTitle">Job Title:</label>
-    <input type="text" id="jobTitle" name="jobTitle" required>
-    <br><br>
+        <div class="form-group">
+          <label for="primaryEmail" class="col-sm-2 control-label">Work Email:</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="email" id="primaryEmail" name="primaryEmail" placeholder="Enter a valid email with @ symbol">
+          </div>
+        </div>
 
-    <label for="website1">Website 1:</label>
-    <input type="url" id="website1" name="website1" required>
-    <br><br>
+        <div class="form-group">
+          <label for="secondaryEmail" class="col-sm-2 control-label">Personal Email:</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="email" id="secondaryEmail" name="secondaryEmail" placeholder="Enter a valid email with @ symbol">
+          </div>
+        </div>
 
-    <label for="website2">Website 2:</label>
-    <input type="url" id="website2" name="website2" required>
-    <br><br>
+        <div class="form-group">
+          <label for="website1" class="col-sm-2 control-label">Website 1:</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="url" id="website1" name="website1" placeholder="Enter valid URL (including https://)">
+          </div>
+        </div>
 
-    <button type="submit">Generate</button>
-    <input type="reset">
-    <br><br>
-    <a href="https://github.com/Steve0verton/qr-business-card">Source Code</a>
-  </form>
+        <div class="form-group">
+          <label for="website2" class="col-sm-2 control-label">Website 2:</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="url" id="website2" name="website2" placeholder="Enter valid URL (including https://)">
+          </div>
+        </div>
 
-  <hr>
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-primary">Generate</button>
+          <input type="reset" class="btn btn-default">
+        </div>
 
-  <h1>QR Code</h1>
-  <p>Right click to download and save QR code as an image.</p>
-  <img src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0" alt="QR Code" class="qr-code" />
+      </form>
+    </div>
 
-  <h1>VCF Code Embedded in QR Code</h1>
-  <pre id="contactQRsource"></pre>
+    <div class="row">
+      <h1>QR Code</h1>
+      <p>Scan this QR code with your phone to test things out. Right click to download and save QR code as an image. Print QR code to use on business card or other shareable locations (ex: back of phone).</p>
+      <img src="https://chart.googleapis.com/chart?cht=qr&chl=Generate+Contact+Info&chs=160x160&chld=L|0" alt="QR Code" class="qr-code" />
+    </div>
+
+    <div class="row">
+      <h1>QR Code Source</h1>
+      <p>The following code is embedded within the QR code above.  This code is VCF formatted for industry standard contact cards shared on most mainstream smart phones.</p>
+      <pre id="contactQRsource"></pre>
+    </div>
+
+    <div class="row">
+      <h1>Reference</h1>
+      <ul>
+        <li><a href="https://github.com/Steve0verton/qr-business-card">Source Code</a></li>
+        <li><a href="https://www.linkedin.com/in/overton/">Author Contact</a></li>
+        <li><a href="https://github.com/Steve0verton/qr-business-card/issues">Report an Issue or Feature Request</a></li>
+      </ul>
+      <p>Google Analytics is running on this page to count page views only.  Form collection services provided by Google Analytics are disabled to avoid storing personally identifiable information.</p>
+    </div>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script>
@@ -81,22 +138,75 @@
     form.addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent form submission
 
+      // Initialize
+      var lastName = "";
+      var firstName = "";
+      var org = "";
+      var primaryNumber = "";
+      var secondaryNumber = "";
+      var primaryEmail = "";
+      var secondaryEmail = "";
+      var jobTitle = "";
+      var website1 = "";
+      var website2 = "";
+
       // Get the entered data from the form
+      lastName = document.getElementById('lastName').value.toString().trim();
+      firstName = document.getElementById('firstName').value.toString().trim();
+      org = document.getElementById('org').value.toString().trim();
+      primaryNumber = document.getElementById('primaryNumber').value.toString().trim();
+      secondaryNumber = document.getElementById('secondaryNumber').value.toString().trim();
+      primaryEmail = document.getElementById('primaryEmail').value.toString().trim();
+      secondaryEmail = document.getElementById('secondaryEmail').value.toString().trim();
+      jobTitle = document.getElementById('jobTitle').value.toString().trim();
+      website1 = document.getElementById('website1').value.toString().trim();
+      website2 = document.getElementById('website2').value.toString().trim();
+
+      // Build pieces of VCF contact source conditionally
+      // Header is always the same
+      vcfHeader = 'BEGIN:VCARD' + '\n' + 'VERSION:3.0' + '\n';
+
+      // Both first and last name are required and do not require checks
+      vcfName = 
+        'N:' + lastName + ';' + firstName + ';\n' +
+        'FN:' + firstName + ' ' + lastName + '\n';
+      
+      // Organization, phone numbers, emails and URLs can be null
+      // Initialize as empty string
+      var vcfOrg = "";
+      var vcfTel1 = "";
+      var vcfTel2 = "";
+      var vcfEmail1 = "";
+      var vcfEmail2 = "";
+      var vcfTitle = "";
+      var vcfUrl1 = "";
+      var vcfUrl2 = "";
+      // If values are empty they will be left null
+      if (org) { vcfOrg = 'ORG:' + org + ';\n' };
+      if (primaryNumber) { vcfTel1 = 'TEL;TYPE=mobile;TYPE=pref:' + primaryNumber + '\n' };
+      if (secondaryNumber) { vcfTel2 = 'TEL;TYPE=work:' + secondaryNumber + '\n' };
+      if (primaryEmail) { vcfEmail1 = 'EMAIL;TYPE=INTERNET;TYPE=WORK:' + primaryEmail + '\n' };
+      if (secondaryEmail) { vcfEmail2 = 'EMAIL;TYPE=INTERNET;TYPE=HOME:' + secondaryEmail + '\n' };
+      if (jobTitle) { vcfTitle = 'TITLE:' + jobTitle + '\n' };
+      if (website1) { vcfUrl1 = 'URL:' + website1 + '\n' };
+      if (website2) { vcfUrl2 = 'URL:' + website2 + '\n' };
+
+      // Footer is always the same
+      vcfFooter = 'VERSION:3.0' + '\n' + 'END:VCARD';
+
+      // Build VCF contact card source
       const data = 
-        'BEGIN:VCARD' + '\n' +
-        'VERSION:3.0' + '\n' +
-        'N:' + document.getElementById('lastName').value + ';' + document.getElementById('firstName').value + ';\n' +
-        'FN:' + document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value + '\n' +
-        'ORG:' + document.getElementById('org').value + ';\n' +
-        'TEL;TYPE=mobile;TYPE=pref:' + document.getElementById('primaryNumber').value + '\n' +
-        'TEL;TYPE=home:' + document.getElementById('secondaryNumber').value + '\n' +
-        'EMAIL;TYPE=INTERNET;TYPE=WORK:' + document.getElementById('workEmail').value + '\n' +
-        'EMAIL;TYPE=INTERNET;TYPE=HOME:' + document.getElementById('homeEmail').value + '\n' +
-        'TITLE:' + document.getElementById('jobTitle').value + '\n' +
-        'URL:' + document.getElementById('website1').value + '\n' +
-        'URL:' + document.getElementById('website2').value + '\n' +
-        'VERSION:3.0' + '\n' +
-        'END:VCARD'
+        vcfHeader +
+        vcfName +
+        vcfOrg +
+        vcfTel1 +
+        vcfTel2 +
+        vcfEmail1 +
+        vcfEmail2 +
+        vcfTitle +
+        vcfUrl1 +
+        vcfUrl2 +
+        vcfFooter;
 
       // Output the data as plaintext
       output.textContent = data;
@@ -105,7 +215,7 @@
       let contactQRcode = 
         'https://chart.googleapis.com/chart?cht=qr&chl=' +
         encodeURI(data) +
-        '&chs=160x160&chld=L|0'
+        '&chs=160x160&chld=L|0';
 
       // Replace the src of the image with the QR code image
       $('.qr-code').attr('src', contactQRcode);
