@@ -137,16 +137,16 @@
       event.preventDefault(); // Prevent form submission
 
       // Initialize
-      const lastName = "";
-      const firstName = "";
-      const org = "";
-      const primaryNumber = "";
-      const secondaryNumber = "";
-      const primaryEmail = "";
-      const secondaryEmail = "";
-      const jobTitle = "";
-      const website1 = "";
-      const website2 = "";
+      var lastName = "";
+      var firstName = "";
+      var org = "";
+      var primaryNumber = "";
+      var secondaryNumber = "";
+      var primaryEmail = "";
+      var secondaryEmail = "";
+      var jobTitle = "";
+      var website1 = "";
+      var website2 = "";
 
       // Get the entered data from the form
       lastName = document.getElementById('lastName').value;
@@ -171,14 +171,14 @@
       
       // Organization, phone numbers, emails and URLs can be null
       // Initialize as empty string
-      const vcfOrg = "";
-      const vcfTel1 = "";
-      const vcfTel2 = "";
-      const vcfEmail1 = "";
-      const vcfEmail2 = "";
-      const vcfTitle = "";
-      const vcfUrl1 = "";
-      const vcfUrl2 = "";
+      var vcfOrg = "";
+      var vcfTel1 = "";
+      var vcfTel2 = "";
+      var vcfEmail1 = "";
+      var vcfEmail2 = "";
+      var vcfTitle = "";
+      var vcfUrl1 = "";
+      var vcfUrl2 = "";
       // If values are empty they will be left null
       if (vcfOrg) { vcfOrg = 'ORG:' + trim(org)+ ';\n' };
       if (vcfTel1) { vcfTel1 = 'TEL;TYPE=mobile;TYPE=pref:' + trim(primaryNumber) + '\n' };
