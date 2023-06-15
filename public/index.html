@@ -17,11 +17,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
   <div class="container-fluid">
     <div class="row">
       <h1>Contact Information</h1>
-      <p>All fields must be filled in to build a QR code (future updates will make this easier).</p>
+      <p>First and last name must be filled in at the minimum to build a QR code.</p>
     </div>
 
     <div class="row">
@@ -136,16 +137,16 @@
       event.preventDefault(); // Prevent form submission
 
       // Initialize
-      lastName = "";
-      firstName = "";
-      org = "";
-      primaryNumber = "";
-      secondaryNumber = "";
-      primaryEmail = "";
-      secondaryEmail = "";
-      jobTitle = "";
-      website1 = "";
-      website2 = "";
+      const lastName = "";
+      const firstName = "";
+      const org = "";
+      const primaryNumber = "";
+      const secondaryNumber = "";
+      const primaryEmail = "";
+      const secondaryEmail = "";
+      const jobTitle = "";
+      const website1 = "";
+      const website2 = "";
 
       // Get the entered data from the form
       lastName = document.getElementById('lastName').value;
@@ -170,14 +171,14 @@
       
       // Organization, phone numbers, emails and URLs can be null
       // Initialize as empty string
-      var vcfOrg = "";
-      var vcfTel1 = "";
-      var vcfTel2 = "";
-      var vcfEmail1 = "";
-      var vcfEmail2 = "";
-      var vcfTitle = "";
-      var vcfUrl1 = "";
-      var vcfUrl2 = "";
+      const vcfOrg = "";
+      const vcfTel1 = "";
+      const vcfTel2 = "";
+      const vcfEmail1 = "";
+      const vcfEmail2 = "";
+      const vcfTitle = "";
+      const vcfUrl1 = "";
+      const vcfUrl2 = "";
       // If values are empty they will be left null
       if (vcfOrg) { vcfOrg = 'ORG:' + trim(org)+ ';\n' };
       if (vcfTel1) { vcfTel1 = 'TEL;TYPE=mobile;TYPE=pref:' + trim(primaryNumber) + '\n' };
