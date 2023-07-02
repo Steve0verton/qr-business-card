@@ -23,18 +23,18 @@
 
 <body>
   <div class="container-fluid">
-    <div class="row">
+    <div class="row gx-5">
       <h1>QR Business Card Generator</h1>
       <p>Use this form to generate a QR code that can be saved, printed and placed anywhere you wish to share your information as a contact on the smartphone scanning the QR code.  Works great for business cards, websites, or the back of your phone for a paperless digital business card. Scanning the QR code from a smartphone should bring up the native contact viewer on the phone, making it very easy to store contact information directly on the receiving phone without having to visit a website or any other third party application.</p>
       <p>After filling in contact details, press the <strong>Generate</strong> button to create your QR code below.  Use your smartphone to verify the QR code works properly!</p>
     </div>
 
-    <div class="row">
+    <div class="row gx-5">
       <h2>Contact Information</h2>
       <p>First and last name must be filled in at the minimum to build a QR code. Other fields can be left blank as needed. Fields with values will be included in the generated QR code.</p>
     </div>
 
-    <div class="row">
+    <div class="row gx-5">
       <form id="contactInfo" class="form-horizontal">
         <div class="form-group">
           <label for="firstName" class="col-sm-2 control-label">First Name (Required):</label>
@@ -114,19 +114,19 @@
       </form>
     </div>
 
-    <div class="row">
+    <div class="row gx-5">
       <h2>QR Code</h2>
       <p>Scan this QR code with your phone to test things out. Right click (or long press) on QR code to download and save as an image. Print QR code to use on business card or other shareable locations (ex: back of phone).</p>
       <img src="https://chart.googleapis.com/chart?cht=qr&chl=Generate+Contact+Info&chs=180x180&chld=L|0" alt="Business Card QR Code" class="qr-code" id="qr-code-image"/>
     </div>
 
-    <div class="row">
+    <div class="row gx-5">
       <h2>QR Code Source</h2>
       <p>The following code is embedded within the QR code above.  This code is VCF formatted for industry standard <a href="https://en.wikipedia.org/wiki/VCard">vCard</a> sharing supported on most mainstream smartphones.</p>
       <pre id="contactQRsource"></pre>
     </div>
 
-    <div class="row">
+    <div class="row gx-5">
       <h2>Reference</h2>
       <ul>
         <li><a href="https://github.com/Steve0verton/qr-business-card">Source Code</a></li>
