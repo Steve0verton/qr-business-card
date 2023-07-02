@@ -117,7 +117,9 @@
     <div class="row">
       <h2>QR Code</h2>
       <p>Scan this QR code with your phone to test things out. Right click to download and save QR code as an image. Print QR code to use on business card or other shareable locations (ex: back of phone).</p>
-      <img src="https://chart.googleapis.com/chart?cht=qr&chl=Generate+Contact+Info&chs=160x160&chld=L|0" alt="Business Card QR Code" class="qr-code" />
+      <img src="https://chart.googleapis.com/chart?cht=qr&chl=Generate+Contact+Info&chs=180x180&chld=L|0" alt="Business Card QR Code" class="qr-code" id="qr-code-image"/>
+      <br><br>
+      <button onclick="printQR()" class="btn btn-primary" id="print-qr-button">Print</button>
     </div>
 
     <div class="row">
@@ -225,11 +227,17 @@
       let contactQRcode = 
         'https://chart.googleapis.com/chart?cht=qr&chl=' +
         encodeURI(data) +
-        '&chs=160x160&chld=L|0';
+        '&chs=180x180&chld=L|0';
 
       // Replace the src of the image with the QR code image
       $('.qr-code').attr('src', contactQRcode);
     });
+  </script>
+  <script>
+    function printQR() {
+      var image = document.getElementById("qr-code-image");
+      window.print(image);
+    } 
   </script>
 </body>
 </html>
