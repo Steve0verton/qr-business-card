@@ -7,6 +7,7 @@ This project contains source code and a basic HTML page to generate a business c
 - [Project Organization](#project-organization)
 - [Contact Syntax Example](#contact-syntax-example)
 - [Author Contact](#author-contact)
+- [Reference](#reference)
 
 ## Purpose
 
@@ -15,7 +16,6 @@ The purpose of this project is to host the code behind a simple webpage publishe
 ## Project Organization
 
 - [public/](./public/) - Contains source code for [https://qrbizcard.net](https://qrbizcard.net)
-
 
 ## Contact Syntax Example
 
@@ -40,5 +40,10 @@ END:VCARD
 
 ## Author Contact
 
- - [Steve Overton](https://www.linkedin.com/in/overton/)
+- [Steve Overton](https://www.linkedin.com/in/overton/)
+
+## Reference
+
+- [Bootstrap CSS Styling](https://getbootstrap.com/)
+- [vCard Wiki](https://en.wikipedia.org/wiki/VCard)
 
