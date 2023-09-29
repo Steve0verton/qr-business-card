@@ -65,16 +65,16 @@
         </div>
 
         <div class="form-group">
-          <label for="primaryNumber" class="col-sm-2 control-label">Primary Phone Number (Created as Mobile):</label>
+          <label for="mobileNumber" class="col-sm-2 control-label">Mobile Phone Number:</label>
           <div class="col-sm-10">
-            <input class="form-control" type="tel" id="primaryNumber" name="primaryNumber">
+            <input class="form-control" type="tel" id="mobileNumber" name="mobileNumber">
           </div>
         </div>
         
         <div class="form-group">
-          <label for="secondaryNumber" class="col-sm-2 control-label">Secondary Phone Number (Created as Work):</label>
+          <label for="workNumber" class="col-sm-2 control-label">Work Phone Number:</label>
           <div class="col-sm-10">
-            <input class="form-control" type="tel" id="secondaryNumber" name="secondaryNumber">
+            <input class="form-control" type="tel" id="workNumber" name="workNumber">
           </div>
         </div>
 
@@ -93,16 +93,16 @@
         </div>
 
         <div class="form-group">
-          <label for="primaryEmail" class="col-sm-2 control-label">Work Email:</label>
+          <label for="secondaryEmail" class="col-sm-2 control-label">Personal Email:</label>
           <div class="col-sm-10">
-            <input class="form-control" type="email" id="primaryEmail" name="primaryEmail" placeholder="Enter a valid email with @ symbol">
+            <input class="form-control" type="email" id="secondaryEmail" name="secondaryEmail" placeholder="Enter a valid email with @ symbol">
           </div>
         </div>
 
         <div class="form-group">
-          <label for="secondaryEmail" class="col-sm-2 control-label">Personal Email:</label>
+          <label for="primaryEmail" class="col-sm-2 control-label">Work Email:</label>
           <div class="col-sm-10">
-            <input class="form-control" type="email" id="secondaryEmail" name="secondaryEmail" placeholder="Enter a valid email with @ symbol">
+            <input class="form-control" type="email" id="primaryEmail" name="primaryEmail" placeholder="Enter a valid email with @ symbol">
           </div>
         </div>
 
@@ -166,8 +166,8 @@
       var lastName = "";
       var firstName = "";
       var org = "";
-      var primaryNumber = "";
-      var secondaryNumber = "";
+      var mobileNumber = "";
+      var workNumber = "";
       var primaryEmail = "";
       var secondaryEmail = "";
       var homeAddress = "";
@@ -180,8 +180,8 @@
       lastName = document.getElementById('lastName').value.toString().trim();
       firstName = document.getElementById('firstName').value.toString().trim();
       org = document.getElementById('org').value.toString().trim();
-      primaryNumber = document.getElementById('primaryNumber').value.toString().trim();
-      secondaryNumber = document.getElementById('secondaryNumber').value.toString().trim();
+      mobileNumber = document.getElementById('mobileNumber').value.toString().trim();
+      workNumber = document.getElementById('workNumber').value.toString().trim();
       primaryEmail = document.getElementById('primaryEmail').value.toString().trim();
       secondaryEmail = document.getElementById('secondaryEmail').value.toString().trim();
       homeAddress = document.getElementById('homeAddress').value.toString().trim();
@@ -213,8 +213,8 @@
       var vcfUrl2 = "";
       // If values are empty they will be left null
       if (org) { vcfOrg = 'ORG:' + org + ';\n' };
-      if (primaryNumber) { vcfTel1 = 'TEL;TYPE=mobile;TYPE=pref:' + primaryNumber + '\n' };
-      if (secondaryNumber) { vcfTel2 = 'TEL;TYPE=work:' + secondaryNumber + '\n' };
+      if (mobileNumber) { vcfTel1 = 'TEL;TYPE=mobile;TYPE=pref:' + mobileNumber + '\n' };
+      if (workNumber) { vcfTel2 = 'TEL;TYPE=work:' + workNumber + '\n' };
       if (primaryEmail) { vcfEmail1 = 'EMAIL;TYPE=INTERNET;TYPE=WORK:' + primaryEmail + '\n' };
       if (secondaryEmail) { vcfEmail2 = 'EMAIL;TYPE=INTERNET;TYPE=HOME:' + secondaryEmail + '\n' };
       if (homeAddress) { vcfAddr1 = 'ADR;TYPE=WORK:' + homeAddress + '\n' };
