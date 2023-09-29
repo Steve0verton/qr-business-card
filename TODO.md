@@ -11,4 +11,4 @@ Running list of things to do.
 * Contact photo support
 * Add Notes field
 * Add checkbox for "preferred" fields (i.e. phone, email, address)
-
+* Add birthday
