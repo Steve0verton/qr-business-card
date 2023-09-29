@@ -79,6 +79,20 @@
         </div>
 
         <div class="form-group">
+          <label for="homeAddress" class="col-sm-2 control-label">Home Address:</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" id="homeAddress" name="homeAddress">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="workAddress" class="col-sm-2 control-label">Work Address:</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" id="workAddress" name="workAddress">
+          </div>
+        </div>
+
+        <div class="form-group">
           <label for="primaryEmail" class="col-sm-2 control-label">Work Email:</label>
           <div class="col-sm-10">
             <input class="form-control" type="email" id="primaryEmail" name="primaryEmail" placeholder="Enter a valid email with @ symbol">
@@ -156,6 +170,8 @@
       var secondaryNumber = "";
       var primaryEmail = "";
       var secondaryEmail = "";
+      var homeAddress = "";
+      var workAddress = "";
       var jobTitle = "";
       var website1 = "";
       var website2 = "";
@@ -168,6 +184,8 @@
       secondaryNumber = document.getElementById('secondaryNumber').value.toString().trim();
       primaryEmail = document.getElementById('primaryEmail').value.toString().trim();
       secondaryEmail = document.getElementById('secondaryEmail').value.toString().trim();
+      homeAddress = document.getElementById('homeAddress').value.toString().trim();
+      workAddress = document.getElementById('workAddress').value.toString().trim();
       jobTitle = document.getElementById('jobTitle').value.toString().trim();
       website1 = document.getElementById('website1').value.toString().trim();
       website2 = document.getElementById('website2').value.toString().trim();
@@ -188,6 +206,8 @@
       var vcfTel2 = "";
       var vcfEmail1 = "";
       var vcfEmail2 = "";
+      var vcfAddr1 = "";
+      var vcfAddr2 = "";
       var vcfTitle = "";
       var vcfUrl1 = "";
       var vcfUrl2 = "";
@@ -197,6 +217,8 @@
       if (secondaryNumber) { vcfTel2 = 'TEL;TYPE=work:' + secondaryNumber + '\n' };
       if (primaryEmail) { vcfEmail1 = 'EMAIL;TYPE=INTERNET;TYPE=WORK:' + primaryEmail + '\n' };
       if (secondaryEmail) { vcfEmail2 = 'EMAIL;TYPE=INTERNET;TYPE=HOME:' + secondaryEmail + '\n' };
+      if (homeAddress) { vcfAddr1 = 'ADR;TYPE=WORK:' + homeAddress + '\n' };
+      if (workAddress) { vcfAddr2 = 'ADR;TYPE=HOME:' + workAddress + '\n' };
       if (jobTitle) { vcfTitle = 'TITLE:' + jobTitle + '\n' };
       if (website1) { vcfUrl1 = 'URL:' + website1 + '\n' };
       if (website2) { vcfUrl2 = 'URL:' + website2 + '\n' };
@@ -213,6 +235,8 @@
         vcfTel2 +
         vcfEmail1 +
         vcfEmail2 +
+        vcfAddr1 +
+        vcfAddr2 +
         vcfTitle +
         vcfUrl1 +
         vcfUrl2 +
