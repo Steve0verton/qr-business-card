@@ -122,7 +122,7 @@
             <input class="form-control" type="url" id="website2" name="website2" placeholder="Enter valid URL (including https://)">
           </div>
 
-          <div class="col-sm-offset-2 col-sm-10">
+          <div class="mb-3">
             <button type="submit" class="btn btn-primary">Generate</button>
             <input type="reset" class="btn btn-default">
           </div>
@@ -133,13 +133,17 @@
     <div class="row">
       <h2>QR Code</h2>
       <p>Scan this QR code with your phone to test things out. Right click (or long press) on QR code to download and save as an image. Print QR code to use on business card or other shareable locations (ex: back of phone).</p>
-      <img src="https://chart.googleapis.com/chart?cht=qr&chl=Generate+Contact+Info&chs=180x180&chld=L|0" alt="Business Card QR Code" class="qr-code" id="qr-code-image"/>
+      <div class="container-sm">
+        <img src="https://chart.googleapis.com/chart?cht=qr&chl=Generate+Contact+Info&chs=180x180&chld=L|0" alt="Business Card QR Code" class="qr-code" id="qr-code-image"/>
+      </div>
     </div>
 
     <div class="row">
       <h2>QR Code Source</h2>
       <p>The following code is embedded within the QR code above.  This code is VCF formatted for industry standard <a href="https://en.wikipedia.org/wiki/VCard">vCard</a> sharing supported on most mainstream smartphones.</p>
-      <pre id="contactQRsource"></pre>
+      <div class="container-sm">
+        <pre id="contactQRsource"></pre>
+      </div>
     </div>
 
     <div class="row">
