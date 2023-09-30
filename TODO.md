@@ -12,3 +12,5 @@ Running list of things to do.
 * Add Notes field
 * Add checkbox for "preferred" fields (i.e. phone, email, address)
 * Add birthday
+* Google Maps address lookup
+
