@@ -23,7 +23,7 @@
 </head>
 
 <body>
-  <div class="container-md">
+  <div class="container">
     <div class="row row-gap-3">
       <div class="col">
         <h1>UNDER CONSTRUCTION</h1>
@@ -73,30 +73,32 @@
             <input class="form-control" type="tel" id="workNumber" name="workNumber">
           </div>
 
-          <div class="accordion" id="addressAccordion">
+          <div class="accordion mb-3" id="addressAccordion">
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Home Address</button>
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Home Address (Not Working Yet)</button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#addressAccordion">
                 <div class="accordion-body">
-                  <div class="mb-3">
-                    <label for="homeAddress" class="form-label"><strong>Home Address:</strong></label>
-                    <input class="form-control" type="text" id="homeAddress" name="homeAddress">
-                  </div>
+                  <div class="mb-3"><input id="homeAddressStreet1" name="homeAddressStreet1" type="text" class="form-control" placeholder="Street" aria-label="Street"></div>
+                  <div class="mb-3"><input id="homeAddressStreet2" name="homeAddressStreet2" type="text" class="form-control" placeholder="Street" aria-label="Street"></div>
+                  <div class="mb-3"><input id="homeAddressCity" name="homeAddressCity" type="text" class="form-control" placeholder="City" aria-label="City"></div>
+                  <div class="mb-3"><input id="homeAddressState" name="homeAddressState" type="text" class="form-control" placeholder="State" aria-label="State"></div>
+                  <div class="mb-3"><input id="homeAddressZip" name="homeAddressZip" type="text" class="form-control" placeholder="Zip" aria-label="Zip"></div>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Work Address</button>
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Work Address (Not Working Yet)</button>
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#addressAccordion">
                 <div class="accordion-body">
-                  <div class="mb-3">
-                    <label for="workAddress" class="form-label"><strong>Work Address:</strong></label>
-                    <input class="form-control" type="text" id="workAddress" name="workAddress">
-                  </div>
+                  <div class="mb-3"><input id="workAddressStreet1" name="workAddressStreet1" type="text" class="form-control" placeholder="Street" aria-label="Street"></div>
+                  <div class="mb-3"><input id="workAddressStreet2" name="workAddressStreet2" type="text" class="form-control" placeholder="Street" aria-label="Street"></div>
+                  <div class="mb-3"><input id="workAddressCity" name="workAddressCity" type="text" class="form-control" placeholder="City" aria-label="City"></div>
+                  <div class="mb-3"><input id="workAddressState" name="workAddressState" type="text" class="form-control" placeholder="State" aria-label="State"></div>
+                  <div class="mb-3"><input id="workAddressZip" name="workAddressZip" type="text" class="form-control" placeholder="Zip" aria-label="Zip"></div>
                 </div>
               </div>
             </div>
