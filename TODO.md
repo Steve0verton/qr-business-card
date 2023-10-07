@@ -2,7 +2,7 @@
 
 Running list of things to do.
 
-* Improve form to input contact information
+* Improve form to input contact information, better visual layout
 * Use a variable map or some mechanism to easily map to a predefined syntaxt for the VCF contact file versus the hard-coded method in Javascript
 * Ability to select phone and email "type" in standardized drop down
 * Ability to select address "type" in standardized drop down
@@ -12,5 +12,5 @@ Running list of things to do.
 * Add Notes field
 * Add checkbox for "preferred" fields (i.e. phone, email, address)
 * Add birthday
-* Google Maps address lookup
+* Google Maps address lookup validation
 
