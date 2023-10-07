@@ -183,13 +183,25 @@
       var workNumber = "";
       var primaryEmail = "";
       var secondaryEmail = "";
-      var homeAddress = "";
-      var workAddress = "";
+      var homeAddressStreet1 = "";
+      var homeAddressStreet2 = "";
+      var homeAddressCity = "";
+      var homeAddressState = "";
+      var homeAddressZip = "";
+      var homeAddressCountryCode = "";
+      var workAddressStreet1 = "";
+      var workAddressStreet2 = "";
+      var workAddressCity = "";
+      var workAddressState = "";
+      var workAddressZip = "";
+      var workAddressCountryCode = "";
+      var homeAddress = ""; // Full home address
+      var workAddress = ""; // Full work address
       var jobTitle = "";
       var website1 = "";
-      var website2 = "";
+      var website2 = "";      
 
-      // Get the entered data from the form
+      // Get the entered data from the form and cleanse
       lastName = document.getElementById('lastName').value.toString().trim();
       firstName = document.getElementById('firstName').value.toString().trim();
       org = document.getElementById('org').value.toString().trim();
@@ -197,11 +209,38 @@
       workNumber = document.getElementById('workNumber').value.toString().trim();
       primaryEmail = document.getElementById('primaryEmail').value.toString().trim();
       secondaryEmail = document.getElementById('secondaryEmail').value.toString().trim();
-      homeAddress = document.getElementById('homeAddress').value.toString().trim();
-      workAddress = document.getElementById('workAddress').value.toString().trim();
+      homeAddressStreet1 = document.getElementById('homeAddressStreet1').value.toString().trim();
+      homeAddressStreet2 = document.getElementById('homeAddressStreet2').value.toString().trim();
+      homeAddressCity = document.getElementById('homeAddressCity').value.toString().trim();
+      homeAddressState = document.getElementById('homeAddressState').value.toString().trim();
+      homeAddressZip = document.getElementById('homeAddressZip').value.toString().trim();
+      homeAddressCountryCode = document.getElementById('homeAddressCountryCode').value.toString().trim();
+      workAddressStreet1 = document.getElementById('workAddressStreet1').value.toString().trim();
+      workAddressStreet2 = document.getElementById('workAddressStreet2').value.toString().trim();
+      workAddressCity = document.getElementById('workAddressCity').value.toString().trim();
+      workAddressState = document.getElementById('workAddressState').value.toString().trim();
+      workAddressZip = document.getElementById('workAddressZip').value.toString().trim();
+      workAddressCountryCode = document.getElementById('workAddressCountryCode').value.toString().trim();
       jobTitle = document.getElementById('jobTitle').value.toString().trim();
       website1 = document.getElementById('website1').value.toString().trim();
       website2 = document.getElementById('website2').value.toString().trim();
+
+      // Build addresses
+      homeAddress = 
+        homeAddressStreet1 + '\\n'
+        homeAddressStreet2 + ';'
+        homeAddressCity + ';'
+        homeAddressState + ';'
+        homeAddressZip + ';'
+        homeAddressCountryCode;
+
+      workAddress = 
+        workAddressStreet1 + '\\n'
+        workAddressStreet2 + ';'
+        workAddressCity + ';'
+        workAddressState + ';'
+        workAddressZip + ';'
+        workAddressCountryCode;
 
       // Build pieces of VCF contact source conditionally
       // Header is always the same
@@ -224,14 +263,15 @@
       var vcfTitle = "";
       var vcfUrl1 = "";
       var vcfUrl2 = "";
+
       // If values are empty they will be left null
       if (org) { vcfOrg = 'ORG:' + org + ';\n' };
       if (mobileNumber) { vcfTel1 = 'TEL;TYPE=mobile;TYPE=pref:' + mobileNumber + '\n' };
       if (workNumber) { vcfTel2 = 'TEL;TYPE=work:' + workNumber + '\n' };
       if (primaryEmail) { vcfEmail1 = 'EMAIL;TYPE=INTERNET;TYPE=WORK:' + primaryEmail + '\n' };
       if (secondaryEmail) { vcfEmail2 = 'EMAIL;TYPE=INTERNET;TYPE=HOME:' + secondaryEmail + '\n' };
-      if (homeAddress) { vcfAddr1 = 'ADR;TYPE=HOME:' + homeAddress + '\n' };
-      if (workAddress) { vcfAddr2 = 'ADR;TYPE=WORK:' + workAddress + '\n' };
+      if (homeAddress) { vcfAddr1 = 'ADR;TYPE=HOME:;;' + homeAddress + '\n' };
+      if (workAddress) { vcfAddr2 = 'ADR;TYPE=WORK:;;' + workAddress + '\n' };
       if (jobTitle) { vcfTitle = 'TITLE:' + jobTitle + '\n' };
       if (website1) { vcfUrl1 = 'URL:' + website1 + '\n' };
       if (website2) { vcfUrl2 = 'URL:' + website2 + '\n' };
