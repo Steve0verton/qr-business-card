@@ -86,6 +86,7 @@
                   <div class="mb-3"><input id="homeAddressCity" name="homeAddressCity" type="text" class="form-control" placeholder="City" aria-label="City"></div>
                   <div class="mb-3"><input id="homeAddressState" name="homeAddressState" type="text" class="form-control" placeholder="State" aria-label="State"></div>
                   <div class="mb-3"><input id="homeAddressZip" name="homeAddressZip" type="text" class="form-control" placeholder="Zip" aria-label="Zip"></div>
+                  <div class="mb-3"><input id="homeAddressCountryCode" name="homeAddressCountryCode" type="text" class="form-control" placeholder="Country Code" aria-label="Country Code"></div>
                 </div>
               </div>
             </div>
@@ -100,6 +101,7 @@
                   <div class="mb-3"><input id="workAddressCity" name="workAddressCity" type="text" class="form-control" placeholder="City" aria-label="City"></div>
                   <div class="mb-3"><input id="workAddressState" name="workAddressState" type="text" class="form-control" placeholder="State" aria-label="State"></div>
                   <div class="mb-3"><input id="workAddressZip" name="workAddressZip" type="text" class="form-control" placeholder="Zip" aria-label="Zip"></div>
+                  <div class="mb-3"><input id="workAddressCountryCode" name="workAddressCountryCode" type="text" class="form-control" placeholder="Country Code" aria-label="Country Code"></div>
                 </div>
               </div>
             </div>
@@ -127,7 +129,7 @@
 
           <div class="mb-3">
             <button type="submit" class="btn btn-primary">Generate</button>
-            <input type="reset" class="btn btn-default">
+            <input type="reset" class="btn btn-secondary">
           </div>
         </form>
       </div>
@@ -157,7 +159,7 @@
         <li><a href="https://www.linkedin.com/in/overton/">Author Contact</a></li>
         <li><a href="https://github.com/Steve0verton/qr-business-card/issues">Report an Issue or Feature Request</a></li>
       </ul>
-      <p><small>Google Analytics is running on this page to count page views only.  Form collection services provided by Google Analytics are disabled to avoid storing personally identifiable information.</small></p>
+      <p><small>Google Analytics is running on this page to count page views only.  Form collection services provided by Google Analytics are explicitly disabled to avoid storing personally identifiable information.</small></p>
     </div>
   </div>
 
@@ -228,8 +230,8 @@
       if (workNumber) { vcfTel2 = 'TEL;TYPE=work:' + workNumber + '\n' };
       if (primaryEmail) { vcfEmail1 = 'EMAIL;TYPE=INTERNET;TYPE=WORK:' + primaryEmail + '\n' };
       if (secondaryEmail) { vcfEmail2 = 'EMAIL;TYPE=INTERNET;TYPE=HOME:' + secondaryEmail + '\n' };
-      if (homeAddress) { vcfAddr1 = 'ADR;TYPE=WORK:' + homeAddress + '\n' };
-      if (workAddress) { vcfAddr2 = 'ADR;TYPE=HOME:' + workAddress + '\n' };
+      if (homeAddress) { vcfAddr1 = 'ADR;TYPE=HOME:' + homeAddress + '\n' };
+      if (workAddress) { vcfAddr2 = 'ADR;TYPE=WORK:' + workAddress + '\n' };
       if (jobTitle) { vcfTitle = 'TITLE:' + jobTitle + '\n' };
       if (website1) { vcfUrl1 = 'URL:' + website1 + '\n' };
       if (website2) { vcfUrl2 = 'URL:' + website2 + '\n' };
