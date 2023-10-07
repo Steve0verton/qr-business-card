@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>QR Code Generator for Contact Card</title>
+  <meta charset="utf-8">
+  <title>QR Code Generator for Business Card</title>
+  <meta name="description" content="QR code generator for business cards. Builds a QR code that natively opens contact information directly on phone using a vCard to make sharing contact information easier, private and secure.">
+  <meta name="robots" content="index, archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://qrbizcard.net/">
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L5T9QTR11L"></script>
   <script>
@@ -11,67 +17,155 @@
 
     gtag('config', 'G-L5T9QTR11L');
   </script>
+
+  <!-- Bootstrapped CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
 <body>
-  <h1>Enter Contact Information</h1>
-  <p>All fields must be filled in to build a QR code (future updates will make this easier).</p>
-  <form id="contactInfo">
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" name="firstName" required>
-    <br><br>
+  <div class="container">
+    <div class="row row-gap-3">
+      <div class="col">
+        <h1>UNDER CONSTRUCTION</h1>
+        <h1>QR Business Card Generator</h1>
+        <p>Use this form to generate a QR code that can be saved, printed and placed anywhere you wish to share your information as a contact on the smartphone scanning the QR code.  Works great for business cards, websites, or the back of your phone for a paperless digital business card. Scanning the QR code from a smartphone should bring up the native contact viewer on the phone, making it very easy to store contact information directly on the receiving phone without having to visit a website or any other third party application.</p>
+        <p>After filling in contact details, press the <strong>Generate</strong> button to create your QR code below.  Use your smartphone to verify the QR code works properly!</p>
+      </div>
+    </div>
 
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" name="lastName" required>
-    <br><br>
+    <div class="row row-gap-3">
+      <div class="col">
+        <h2>Contact Information</h2>
+        <p>First and last name must be filled in at the minimum to build a QR code. Other fields can be left blank as needed. Fields with values will be included in the generated QR code.</p>
+      </div>
+    </div>
 
-    <label for="org">Organization:</label>
-    <input type="text" id="org" name="org" required>
-    <br><br>
+    <div class="row row-gap-3">
+      <div class="col">
+        <form id="contactInfo">
+          <div class="mb-3">
+            <label for="firstName" class="form-label"><strong>First Name (Required):</strong></label>
+            <input class="form-control" type="text" id="firstName" name="firstName" required>
+          </div>
 
-    <label for="primaryNumber">Primary Phone Number (Mobile):</label>
-    <input type="tel" id="primaryNumber" name="primaryNumber" required>
-    <br><br>
-    
-    <label for="secondaryNumber">Secondary Phone Number (Home):</label>
-    <input type="tel" id="secondaryNumber" name="secondaryNumber" required>
-    <br><br>
+          <div class="mb-3">
+            <label for="lastName" class="form-label"><strong>Last Name (Required):</strong></label>
+            <input class="form-control" type="text" id="lastName" name="lastName" required>
+          </div>
 
-    <label for="workEmail">Work Email:</label>
-    <input type="email" id="workEmail" name="workEmail" required>
-    <br><br>
+          <div class="mb-3">
+            <label for="org" class="form-label"><strong>Organization:</strong></label>
+            <input class="form-control" type="text" id="org" name="org">
+          </div>
 
-    <label for="homeEmail">Personal Email:</label>
-    <input type="email" id="homeEmail" name="homeEmail" required>
-    <br><br>
+          <div class="mb-3">
+            <label for="jobTitle" class="form-label"><strong>Job Title:</strong></label>
+            <input class="form-control" type="text" id="jobTitle" name="jobTitle">
+          </div>
 
-    <label for="jobTitle">Job Title:</label>
-    <input type="text" id="jobTitle" name="jobTitle" required>
-    <br><br>
+          <div class="mb-3">
+            <label for="mobileNumber" class="form-label"><strong>Mobile Phone Number:</strong></label>
+            <input class="form-control" type="tel" id="mobileNumber" name="mobileNumber">
+          </div>
+          
+          <div class="mb-3">
+            <label for="workNumber" class="form-label"><strong>Work Phone Number:</strong></label>
+            <input class="form-control" type="tel" id="workNumber" name="workNumber">
+          </div>
 
-    <label for="website1">Website 1:</label>
-    <input type="url" id="website1" name="website1" required>
-    <br><br>
+          <label for="addressAccordion" class="form-label"><strong>Address(es):</strong></label>
+          <div class="accordion mb-3" id="addressAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Home Address (Not Working Yet)</button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  <div class="mb-3"><input id="homeAddressStreet1" name="homeAddressStreet1" type="text" class="form-control" placeholder="Street" aria-label="Street"></div>
+                  <div class="mb-3"><input id="homeAddressStreet2" name="homeAddressStreet2" type="text" class="form-control" placeholder="Street" aria-label="Street"></div>
+                  <div class="mb-3"><input id="homeAddressCity" name="homeAddressCity" type="text" class="form-control" placeholder="City" aria-label="City"></div>
+                  <div class="mb-3"><input id="homeAddressState" name="homeAddressState" type="text" class="form-control" placeholder="State" aria-label="State"></div>
+                  <div class="mb-3"><input id="homeAddressZip" name="homeAddressZip" type="text" class="form-control" placeholder="Zip" aria-label="Zip"></div>
+                  <div class="mb-3"><input id="homeAddressCountryCode" name="homeAddressCountryCode" type="text" class="form-control" placeholder="Country Code" aria-label="Country Code"></div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Work Address (Not Working Yet)</button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  <div class="mb-3"><input id="workAddressStreet1" name="workAddressStreet1" type="text" class="form-control" placeholder="Street" aria-label="Street"></div>
+                  <div class="mb-3"><input id="workAddressStreet2" name="workAddressStreet2" type="text" class="form-control" placeholder="Street" aria-label="Street"></div>
+                  <div class="mb-3"><input id="workAddressCity" name="workAddressCity" type="text" class="form-control" placeholder="City" aria-label="City"></div>
+                  <div class="mb-3"><input id="workAddressState" name="workAddressState" type="text" class="form-control" placeholder="State" aria-label="State"></div>
+                  <div class="mb-3"><input id="workAddressZip" name="workAddressZip" type="text" class="form-control" placeholder="Zip" aria-label="Zip"></div>
+                  <div class="mb-3"><input id="workAddressCountryCode" name="workAddressCountryCode" type="text" class="form-control" placeholder="Country Code" aria-label="Country Code"></div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-    <label for="website2">Website 2:</label>
-    <input type="url" id="website2" name="website2" required>
-    <br><br>
+          <div class="mb-3">
+            <label for="secondaryEmail" class="form-label"><strong>Personal Email:</strong></label>
+            <input class="form-control" type="email" id="secondaryEmail" name="secondaryEmail" placeholder="Enter a valid email with @ symbol">
+          </div>
 
-    <button type="submit">Generate</button>
-    <input type="reset">
-    <br><br>
-    <a href="https://github.com/Steve0verton/qr-business-card">Source Code</a>
-  </form>
+          <div class="mb-3">
+            <label for="primaryEmail" class="form-label"><strong>Work Email:</strong></label>
+            <input class="form-control" type="email" id="primaryEmail" name="primaryEmail" placeholder="Enter a valid email with @ symbol">
+          </div>
 
-  <hr>
+          <div class="mb-3">
+            <label for="website1" class="form-label"><strong>Website 1:</strong></label>
+            <input class="form-control" type="url" id="website1" name="website1" placeholder="Enter valid URL (including https://)">
+          </div>
 
-  <h1>QR Code</h1>
-  <p>Right click to download and save QR code as an image.</p>
-  <img src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0" alt="QR Code" class="qr-code" />
+          <div class="mb-3">
+            <label for="website2" class="form-label"><strong>Website 2:</strong></label>
+            <input class="form-control" type="url" id="website2" name="website2" placeholder="Enter valid URL (including https://)">
+          </div>
 
-  <h1>VCF Code Embedded in QR Code</h1>
-  <pre id="contactQRsource"></pre>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Generate</button>
+            <input type="reset" class="btn btn-secondary">
+          </div>
+        </form>
+      </div>
+    </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <div class="row row-gap-3">
+      <h2>QR Code</h2>
+      <p>Scan this QR code with your phone to test things out. Right click (or long press) on QR code to download and save as an image. Print QR code to use on business card or other shareable locations (ex: back of phone).</p>
+      <div class="container-sm">
+        <img src="https://chart.googleapis.com/chart?cht=qr&chl=Generate+Contact+Info&chs=180x180&chld=L|0" alt="Business Card QR Code" class="qr-code" id="qr-code-image"/>
+      </div>
+    </div>
+
+    <div class="row row-gap-3">
+      <h2>QR Code Source</h2>
+      <p>The following code is embedded within the QR code above.  This code is VCF formatted for industry standard <a href="https://en.wikipedia.org/wiki/VCard">vCard</a> sharing supported on most mainstream smartphones.</p>
+      <div class="container-sm">
+        <pre id="contactQRsource"></pre>
+      </div>
+    </div>
+
+    <div class="row row-gap-3">
+      <h2>Reference</h2>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/Steve0verton/qr-business-card">Source Code</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/VCard">vCard Wiki</a></li>
+        <li><a href="https://www.linkedin.com/in/overton/">Author Contact</a></li>
+        <li><a href="https://github.com/Steve0verton/qr-business-card/issues">Report an Issue or Feature Request</a></li>
+      </ul>
+      <p><small>Google Analytics is running on this page to count page views only.  Form collection services provided by Google Analytics are explicitly disabled to avoid storing personally identifiable information.</small></p>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script>
     // Get form and output elements
     const form = document.getElementById('contactInfo');
@@ -81,22 +175,130 @@
     form.addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent form submission
 
-      // Get the entered data from the form
+      // Initialize
+      var lastName = "";
+      var firstName = "";
+      var org = "";
+      var mobileNumber = "";
+      var workNumber = "";
+      var primaryEmail = "";
+      var secondaryEmail = "";
+      var homeAddressStreet1 = "";
+      var homeAddressStreet2 = "";
+      var homeAddressCity = "";
+      var homeAddressState = "";
+      var homeAddressZip = "";
+      var homeAddressCountryCode = "";
+      var workAddressStreet1 = "";
+      var workAddressStreet2 = "";
+      var workAddressCity = "";
+      var workAddressState = "";
+      var workAddressZip = "";
+      var workAddressCountryCode = "";
+      var homeAddress = ""; // Full home address
+      var workAddress = ""; // Full work address
+      var jobTitle = "";
+      var website1 = "";
+      var website2 = "";      
+
+      // Get the entered data from the form and cleanse
+      lastName = document.getElementById('lastName').value.toString().trim();
+      firstName = document.getElementById('firstName').value.toString().trim();
+      org = document.getElementById('org').value.toString().trim();
+      mobileNumber = document.getElementById('mobileNumber').value.toString().trim();
+      workNumber = document.getElementById('workNumber').value.toString().trim();
+      primaryEmail = document.getElementById('primaryEmail').value.toString().trim();
+      secondaryEmail = document.getElementById('secondaryEmail').value.toString().trim();
+      homeAddressStreet1 = document.getElementById('homeAddressStreet1').value.toString().trim();
+      homeAddressStreet2 = document.getElementById('homeAddressStreet2').value.toString().trim();
+      homeAddressCity = document.getElementById('homeAddressCity').value.toString().trim();
+      homeAddressState = document.getElementById('homeAddressState').value.toString().trim();
+      homeAddressZip = document.getElementById('homeAddressZip').value.toString().trim();
+      homeAddressCountryCode = document.getElementById('homeAddressCountryCode').value.toString().trim();
+      workAddressStreet1 = document.getElementById('workAddressStreet1').value.toString().trim();
+      workAddressStreet2 = document.getElementById('workAddressStreet2').value.toString().trim();
+      workAddressCity = document.getElementById('workAddressCity').value.toString().trim();
+      workAddressState = document.getElementById('workAddressState').value.toString().trim();
+      workAddressZip = document.getElementById('workAddressZip').value.toString().trim();
+      workAddressCountryCode = document.getElementById('workAddressCountryCode').value.toString().trim();
+      jobTitle = document.getElementById('jobTitle').value.toString().trim();
+      website1 = document.getElementById('website1').value.toString().trim();
+      website2 = document.getElementById('website2').value.toString().trim();
+
+      // Build addresses
+      // Street1, City, State and Zip are required in order to build actual address field
+      if (homeAddressStreet1 && homeAddressCity && homeAddressState && homeAddressZip) {
+        homeAddress = 
+          homeAddressStreet1 + '\\n' +
+          homeAddressStreet2 + ';' +
+          homeAddressCity + ';' +
+          homeAddressState + ';' +
+          homeAddressZip + ';' +
+          homeAddressCountryCode;
+      };
+      
+      if (workAddressStreet1 && workAddressCity && workAddressState && workAddressZip) {
+        workAddress = 
+          workAddressStreet1 + '\\n' +
+          workAddressStreet2 + ';' +
+          workAddressCity + ';' +
+          workAddressState + ';' +
+          workAddressZip + ';' +
+          workAddressCountryCode;
+      }; 
+
+      // Build pieces of VCF contact source conditionally
+      // Header is always the same
+      vcfHeader = 'BEGIN:VCARD' + '\n' + 'VERSION:3.0' + '\n';
+
+      // Both first and last name are required and do not require checks
+      vcfName = 
+        'N:' + lastName + ';' + firstName + ';\n' +
+        'FN:' + firstName + ' ' + lastName + '\n';
+      
+      // Organization, phone numbers, emails and URLs can be null
+      // Initialize as empty string
+      var vcfOrg = "";
+      var vcfTel1 = "";
+      var vcfTel2 = "";
+      var vcfEmail1 = "";
+      var vcfEmail2 = "";
+      var vcfAddr1 = "";
+      var vcfAddr2 = "";
+      var vcfTitle = "";
+      var vcfUrl1 = "";
+      var vcfUrl2 = "";
+
+      // If values are empty they will be left null
+      if (org) { vcfOrg = 'ORG:' + org + ';\n' };
+      if (mobileNumber) { vcfTel1 = 'TEL;TYPE=mobile;TYPE=pref:' + mobileNumber + '\n' };
+      if (workNumber) { vcfTel2 = 'TEL;TYPE=work:' + workNumber + '\n' };
+      if (primaryEmail) { vcfEmail1 = 'EMAIL;TYPE=INTERNET;TYPE=WORK:' + primaryEmail + '\n' };
+      if (secondaryEmail) { vcfEmail2 = 'EMAIL;TYPE=INTERNET;TYPE=HOME:' + secondaryEmail + '\n' };
+      if (homeAddress) { vcfAddr1 = 'ADR;TYPE=HOME:;;' + homeAddress + '\n' };
+      if (workAddress) { vcfAddr2 = 'ADR;TYPE=WORK:;;' + workAddress + '\n' };
+      if (jobTitle) { vcfTitle = 'TITLE:' + jobTitle + '\n' };
+      if (website1) { vcfUrl1 = 'URL:' + website1 + '\n' };
+      if (website2) { vcfUrl2 = 'URL:' + website2 + '\n' };
+
+      // Footer is always the same
+      vcfFooter = 'VERSION:3.0' + '\n' + 'END:VCARD';
+
+      // Build VCF contact card source
       const data = 
-        'BEGIN:VCARD' + '\n' +
-        'VERSION:3.0' + '\n' +
-        'N:' + document.getElementById('lastName').value + ';' + document.getElementById('firstName').value + ';\n' +
-        'FN:' + document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value + '\n' +
-        'ORG:' + document.getElementById('org').value + ';\n' +
-        'TEL;TYPE=mobile;TYPE=pref:' + document.getElementById('primaryNumber').value + '\n' +
-        'TEL;TYPE=home:' + document.getElementById('secondaryNumber').value + '\n' +
-        'EMAIL;TYPE=INTERNET;TYPE=WORK:' + document.getElementById('workEmail').value + '\n' +
-        'EMAIL;TYPE=INTERNET;TYPE=HOME:' + document.getElementById('homeEmail').value + '\n' +
-        'TITLE:' + document.getElementById('jobTitle').value + '\n' +
-        'URL:' + document.getElementById('website1').value + '\n' +
-        'URL:' + document.getElementById('website2').value + '\n' +
-        'VERSION:3.0' + '\n' +
-        'END:VCARD'
+        vcfHeader +
+        vcfName +
+        vcfOrg +
+        vcfTel1 +
+        vcfTel2 +
+        vcfEmail1 +
+        vcfEmail2 +
+        vcfAddr1 +
+        vcfAddr2 +
+        vcfTitle +
+        vcfUrl1 +
+        vcfUrl2 +
+        vcfFooter;
 
       // Output the data as plaintext
       output.textContent = data;
@@ -105,7 +307,7 @@
       let contactQRcode = 
         'https://chart.googleapis.com/chart?cht=qr&chl=' +
         encodeURI(data) +
-        '&chs=160x160&chld=L|0'
+        '&chs=180x180&chld=L|0';
 
       // Replace the src of the image with the QR code image
       $('.qr-code').attr('src', contactQRcode);
