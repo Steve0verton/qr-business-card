@@ -31,6 +31,10 @@ TEL;TYPE=mobile;TYPE=pref:{{Primary phone number}}
 TEL;TYPE=home:{{Secondary phone number}}
 EMAIL;TYPE=INTERNET;TYPE=WORK:{{Work email}}
 EMAIL;TYPE=INTERNET;TYPE=HOME:{{Personal email}}
+ADR;type=HOME;type=pref:;;123 Street;City;State;Zip;Country
+ADR;type=WORK:;;123 Street;City;State;Zip;Country
+NOTE:Freeform notes
+BDAY:1984-02-09
 TITLE:{{Job title}}
 URL:{{Primary website}}
 URL:{{Secondary website}}
