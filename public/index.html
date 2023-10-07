@@ -226,21 +226,26 @@
       website2 = document.getElementById('website2').value.toString().trim();
 
       // Build addresses
-      homeAddress = 
-        homeAddressStreet1 + '\\n'
-        homeAddressStreet2 + ';'
-        homeAddressCity + ';'
-        homeAddressState + ';'
-        homeAddressZip + ';'
-        homeAddressCountryCode;
-
-      workAddress = 
-        workAddressStreet1 + '\\n'
-        workAddressStreet2 + ';'
-        workAddressCity + ';'
-        workAddressState + ';'
-        workAddressZip + ';'
-        workAddressCountryCode;
+      // Street1, City, State and Zip are required in order to build actual address field
+      if (homeAddressStreet1 && homeAddressCity && homeAddressState && homeAddressZip) {
+        homeAddress = 
+          homeAddressStreet1 + '\\n' +
+          homeAddressStreet2 + ';' +
+          homeAddressCity + ';' +
+          homeAddressState + ';' +
+          homeAddressZip + ';' +
+          homeAddressCountryCode;
+      };
+      
+      if (workAddressStreet1 && workAddressCity && workAddressState && workAddressZip) {
+        workAddress = 
+          workAddressStreet1 + '\\n' +
+          workAddressStreet2 + ';' +
+          workAddressCity + ';' +
+          workAddressState + ';' +
+          workAddressZip + ';' +
+          workAddressCountryCode;
+      }; 
 
       // Build pieces of VCF contact source conditionally
       // Header is always the same
