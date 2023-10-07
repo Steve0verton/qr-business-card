@@ -7,6 +7,7 @@ Running list of things to do.
 * Ability to select phone and email "type" in standardized drop down
 * Ability to select address "type" in standardized drop down
 * Country code selection from standardizrd drop down
+* More field validation, especially on all of the address components
 * Print and download buttons to make it easier to save QR code
 * Dynamically build the form on the screen for fields with multiple entries (i.e. phone, email, address)
 * Contact photo support
