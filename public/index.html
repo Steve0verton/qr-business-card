@@ -77,12 +77,12 @@
           <div class="accordion mb-3" id="addressAccordion">
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Home Address (Not Working Yet)</button>
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Home Address:</button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                  <div class="mb-3"><input id="homeAddressStreet1" name="homeAddressStreet1" type="text" class="form-control" placeholder="Street" aria-label="Street"></div>
-                  <div class="mb-3"><input id="homeAddressStreet2" name="homeAddressStreet2" type="text" class="form-control" placeholder="Street" aria-label="Street"></div>
+                  <div class="mb-3"><input id="homeAddressStreet1" name="homeAddressStreet1" type="text" class="form-control" placeholder="Street (line 1)" aria-label="Street"></div>
+                  <div class="mb-3"><input id="homeAddressStreet2" name="homeAddressStreet2" type="text" class="form-control" placeholder="Street (line 2)" aria-label="Street"></div>
                   <div class="mb-3"><input id="homeAddressCity" name="homeAddressCity" type="text" class="form-control" placeholder="City" aria-label="City"></div>
                   <div class="mb-3"><input id="homeAddressState" name="homeAddressState" type="text" class="form-control" placeholder="State" aria-label="State"></div>
                   <div class="mb-3"><input id="homeAddressZip" name="homeAddressZip" type="text" class="form-control" placeholder="Zip" aria-label="Zip"></div>
@@ -92,12 +92,12 @@
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Work Address (Not Working Yet)</button>
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Work Address:</button>
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                  <div class="mb-3"><input id="workAddressStreet1" name="workAddressStreet1" type="text" class="form-control" placeholder="Street" aria-label="Street"></div>
-                  <div class="mb-3"><input id="workAddressStreet2" name="workAddressStreet2" type="text" class="form-control" placeholder="Street" aria-label="Street"></div>
+                  <div class="mb-3"><input id="workAddressStreet1" name="workAddressStreet1" type="text" class="form-control" placeholder="Street (line 1)" aria-label="Street"></div>
+                  <div class="mb-3"><input id="workAddressStreet2" name="workAddressStreet2" type="text" class="form-control" placeholder="Street (line 2)" aria-label="Street"></div>
                   <div class="mb-3"><input id="workAddressCity" name="workAddressCity" type="text" class="form-control" placeholder="City" aria-label="City"></div>
                   <div class="mb-3"><input id="workAddressState" name="workAddressState" type="text" class="form-control" placeholder="State" aria-label="State"></div>
                   <div class="mb-3"><input id="workAddressZip" name="workAddressZip" type="text" class="form-control" placeholder="Zip" aria-label="Zip"></div>
@@ -225,12 +225,19 @@
       website1 = document.getElementById('website1').value.toString().trim();
       website2 = document.getElementById('website2').value.toString().trim();
 
-      // Build addresses
+      // Build full work and home address
+      // Start with line 2 check, if it exists combine with line 1 to add carriage return
+      if (homeAddressStreet2) {
+        homeAddressStreet1 = homeAddressStreet1 + '\\n' + homeAddressStreet2;
+      };
+      if (workAddressStreet2) {
+        workAddressStreet1 = workAddressStreet1 + '\\n' + workAddressStreet2;
+      };
+
       // Street1, City, State and Zip are required in order to build actual address field
       if (homeAddressStreet1 && homeAddressCity && homeAddressState && homeAddressZip) {
         homeAddress = 
-          homeAddressStreet1 + '\\n' +
-          homeAddressStreet2 + ';' +
+          homeAddressStreet1 + ';' +
           homeAddressCity + ';' +
           homeAddressState + ';' +
           homeAddressZip + ';' +
@@ -239,8 +246,7 @@
       
       if (workAddressStreet1 && workAddressCity && workAddressState && workAddressZip) {
         workAddress = 
-          workAddressStreet1 + '\\n' +
-          workAddressStreet2 + ';' +
+          workAddressStreet1 + ';' +
           workAddressCity + ';' +
           workAddressState + ';' +
           workAddressZip + ';' +
