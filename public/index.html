@@ -320,7 +320,7 @@
       if (jobTitle) { vcfTitle = 'TITLE:' + jobTitle + '\n' };
       if (website1) { vcfUrl1 = 'URL:' + website1 + '\n' };
       if (website2) { vcfUrl2 = 'URL:' + website2 + '\n' };
-      if (contactPhotoBase64) { vcfContactPhoto = String(contactPhotoBase64) };
+      if (contactPhotoBase64) { vcfContactPhoto = 'PHOTO;TYPE=JPEG;ENCODING=b:' + String(contactPhotoBase64) };
 
       // Footer is always the same
       vcfFooter = 'VERSION:3.0' + '\n' + 'END:VCARD';
