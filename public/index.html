@@ -184,7 +184,7 @@
       // Event listener for filereader
       reader.addEventListener('load', function() {
         // Get Base64 encoded image
-        const contactPhotoBase64 = reader.result;
+        contactPhotoBase64 = reader.result;
 
         // Output image to log for debugging
         console.log("Contact Photo Base 64=", contactPhotoBase64);
