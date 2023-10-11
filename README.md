@@ -48,6 +48,8 @@ END:VCARD
 
 ## Reference
 
-- [Bootstrap CSS Styling](https://getbootstrap.com/)
 - [vCard Wiki](https://en.wikipedia.org/wiki/VCard)
 
+## Credits
+
+- [Bootstrap CSS](https://getbootstrap.com/)
