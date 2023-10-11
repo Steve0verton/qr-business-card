@@ -127,11 +127,6 @@
           </div>
 
           <div class="mb-3">
-            <label for="contactPhoto" class="form-label"><strong>Contact Photo:</strong></label>
-            <input type="file" class="form-control" id="contactPhoto" name="contactPhoto" accept="image/*" onchange="convertImageToBase64()">
-          </div>
-
-          <div class="mb-3">
             <button type="submit" class="btn btn-primary">Generate</button>
             <input type="reset" class="btn btn-secondary">
           </div>
@@ -170,30 +165,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  <script>
-    // Contact photo image conversion to base64 encoding
-    var contactPhotoBase64 = null;
-
-    function convertImageToBase64() {
-      // Get image file from input
-      const imageFile = document.getElementById('contactPhoto').files[0];
-
-      // FileReader
-      const reader = new FileReader();
-
-      // Event listener for filereader
-      reader.addEventListener('load', function() {
-        // Get Base64 encoded image
-        contactPhotoBase64 = reader.result;
-
-        // Output image to log for debugging
-        console.log("Contact Photo Base 64 format =", contactPhotoBase64);
-      });
-
-      // Read the image file.
-      reader.readAsDataURL(imageFile);
-    }
-  
+  <script>  
     // Form processing
     // Get form and output elements
     const form = document.getElementById('contactInfo');
@@ -202,11 +174,6 @@
     // Event listener for form submission - executes on each click of Generate button
     form.addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent form submission
-
-      // Get Contact Photo base64 image data
-      if (contactPhotoBase64) {
-        console.log("Contact Photo received from file reader =", contactPhotoBase64);
-      }
 
       // Initialize
       var lastName = "";
@@ -307,7 +274,6 @@
       var vcfTitle = "";
       var vcfUrl1 = "";
       var vcfUrl2 = "";
-      var vcfContactPhoto = "";
 
       // If values are empty they will be left null
       if (org) { vcfOrg = 'ORG:' + org + ';\n' };
@@ -320,7 +286,6 @@
       if (jobTitle) { vcfTitle = 'TITLE:' + jobTitle + '\n' };
       if (website1) { vcfUrl1 = 'URL:' + website1 + '\n' };
       if (website2) { vcfUrl2 = 'URL:' + website2 + '\n' };
-      if (contactPhotoBase64) { vcfContactPhoto = 'PHOTO;TYPE=JPEG;ENCODING=b:' + String(contactPhotoBase64) };
 
       // Footer is always the same
       vcfFooter = 'VERSION:3.0' + '\n' + 'END:VCARD';
@@ -339,7 +304,6 @@
         vcfTitle +
         vcfUrl1 +
         vcfUrl2 +
-        vcfContactPhoto +
         vcfFooter;
 
       // Output the data as plaintext
