@@ -231,7 +231,7 @@
       jobTitle = document.getElementById('jobTitle').value.toString().trim();
       website1 = document.getElementById('website1').value.toString().trim();
       website2 = document.getElementById('website2').value.toString().trim();
-      notes = document.getElementById('notes').value.toString().trim();
+      notes = document.getElementById('notes').value.replace(/\n/g, "\\n").toString().trim();
 
       // Build full work and home address
       // Start with line 2 check, if it exists combine with line 1 to add carriage return
@@ -260,11 +260,6 @@
           workAddressZip + ';' +
           workAddressCountryCode;
       }; 
-
-      //console.log("Notes=",notes);
-      // Cleanup carriage returns in contact notes
-      //notes = notes.replace(/\r\n/g, "\\n")
-      //console.log("Notes=",notes);
 
       // Build pieces of VCF contact source conditionally
       // Header is always the same
@@ -300,7 +295,7 @@
       if (jobTitle) { vcfTitle = 'TITLE:' + jobTitle + '\n' };
       if (website1) { vcfUrl1 = 'URL:' + website1 + '\n' };
       if (website2) { vcfUrl2 = 'URL:' + website2 + '\n' };
-      if (notes) { vcfNotes = 'NOTE:' + notes.replace(/\r/g, "\\n") + '\n' };
+      if (notes) { vcfNotes = 'NOTE:' + notes + '\n' };
 
       // Footer is always the same
       vcfFooter = 'END:VCARD';
