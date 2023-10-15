@@ -129,7 +129,7 @@
 
           <div class="mb-3">
             <label for="notes" class="form-label"><strong>Contact Notes:</strong></label>
-            <textarea class="form-control" type="text" id="notes" name="notes" rows="3"></textarea>
+            <textarea class="form-control" type="text" id="notes" name="notes" rows="3" maxlength="500"></textarea>
           </div>
 
           <div class="mb-3">
@@ -261,6 +261,11 @@
           workAddressCountryCode;
       }; 
 
+      //console.log("Notes=",notes);
+      // Cleanup carriage returns in contact notes
+      //notes = notes.replace(/\r\n/g, "\\n")
+      //console.log("Notes=",notes);
+
       // Build pieces of VCF contact source conditionally
       // Header is always the same
       vcfHeader = 'BEGIN:VCARD' + '\n' + 'VERSION:4.0' + '\n';
@@ -295,7 +300,7 @@
       if (jobTitle) { vcfTitle = 'TITLE:' + jobTitle + '\n' };
       if (website1) { vcfUrl1 = 'URL:' + website1 + '\n' };
       if (website2) { vcfUrl2 = 'URL:' + website2 + '\n' };
-      if (notes) { vcfNotes = 'NOTE:' + notes + '\n' };
+      if (notes) { vcfNotes = 'NOTE:' + notes.replace(/\r/g, "\\n") + '\n' };
 
       // Footer is always the same
       vcfFooter = 'END:VCARD';
