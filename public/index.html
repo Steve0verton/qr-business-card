@@ -7,6 +7,7 @@
   <meta name="robots" content="index, archive">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://qrbizcard.net/">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L5T9QTR11L"></script>
@@ -93,7 +94,7 @@
                   <div class="mb-3"><input id="homeAddressStreet1" name="homeAddressStreet1" type="text" class="form-control" placeholder="Street (line 1)" aria-label="Street"></div>
                   <div class="mb-3"><input id="homeAddressStreet2" name="homeAddressStreet2" type="text" class="form-control" placeholder="Street (line 2)" aria-label="Street"></div>
                   <div class="mb-3"><input id="homeAddressCity" name="homeAddressCity" type="text" class="form-control" placeholder="City" aria-label="City"></div>
-                  <div class="mb-3"><input id="homeAddressState" name="homeAddressState" type="text" class="form-control" placeholder="State" aria-label="State"></div>
+                  <div class="mb-3"><input id="homeAddressState" name="homeAddressState" type="text" class="form-control" placeholder="State/Province" aria-label="State"></div>
                   <div class="mb-3"><input id="homeAddressZip" name="homeAddressZip" type="text" class="form-control" placeholder="Zip" aria-label="Zip"></div>
                   <div class="mb-3"><input id="homeAddressCountryCode" name="homeAddressCountryCode" type="text" class="form-control" placeholder="Country Code" aria-label="Country Code"></div>
                 </div>
@@ -108,7 +109,7 @@
                   <div class="mb-3"><input id="workAddressStreet1" name="workAddressStreet1" type="text" class="form-control" placeholder="Street (line 1)" aria-label="Street"></div>
                   <div class="mb-3"><input id="workAddressStreet2" name="workAddressStreet2" type="text" class="form-control" placeholder="Street (line 2)" aria-label="Street"></div>
                   <div class="mb-3"><input id="workAddressCity" name="workAddressCity" type="text" class="form-control" placeholder="City" aria-label="City"></div>
-                  <div class="mb-3"><input id="workAddressState" name="workAddressState" type="text" class="form-control" placeholder="State" aria-label="State"></div>
+                  <div class="mb-3"><input id="workAddressState" name="workAddressState" type="text" class="form-control" placeholder="State/Province" aria-label="State"></div>
                   <div class="mb-3"><input id="workAddressZip" name="workAddressZip" type="text" class="form-control" placeholder="Zip" aria-label="Zip"></div>
                   <div class="mb-3"><input id="workAddressCountryCode" name="workAddressCountryCode" type="text" class="form-control" placeholder="Country Code" aria-label="Country Code"></div>
                 </div>
@@ -124,6 +125,11 @@
           <div class="mb-3">
             <label for="website2" class="form-label"><strong>Website 2:</strong></label>
             <input class="form-control" type="url" id="website2" name="website2" placeholder="Enter valid URL (including https://)">
+          </div>
+
+          <div class="mb-3">
+            <label for="notes" class="form-label"><strong>Contact Notes:</strong></label>
+            <textarea class="form-control" type="text" id="notes" name="notes" rows="3" maxlength="500"></textarea>
           </div>
 
           <div class="mb-3">
@@ -200,6 +206,7 @@
       var jobTitle = "";
       var website1 = "";
       var website2 = "";
+      var notes = "";
 
       // Get the entered data from the form and cleanse
       lastName = document.getElementById('lastName').value.toString().trim();
@@ -224,6 +231,7 @@
       jobTitle = document.getElementById('jobTitle').value.toString().trim();
       website1 = document.getElementById('website1').value.toString().trim();
       website2 = document.getElementById('website2').value.toString().trim();
+      notes = document.getElementById('notes').value.replace(/\n/g, "\\n").toString().trim();
 
       // Build full work and home address
       // Start with line 2 check, if it exists combine with line 1 to add carriage return
@@ -255,7 +263,7 @@
 
       // Build pieces of VCF contact source conditionally
       // Header is always the same
-      vcfHeader = 'BEGIN:VCARD' + '\n' + 'VERSION:3.0' + '\n';
+      vcfHeader = 'BEGIN:VCARD' + '\n' + 'VERSION:4.0' + '\n';
 
       // Both first and last name are required and do not require checks
       vcfName = 
@@ -274,6 +282,7 @@
       var vcfTitle = "";
       var vcfUrl1 = "";
       var vcfUrl2 = "";
+      var vcfNotes = "";
 
       // If values are empty they will be left null
       if (org) { vcfOrg = 'ORG:' + org + ';\n' };
@@ -286,9 +295,10 @@
       if (jobTitle) { vcfTitle = 'TITLE:' + jobTitle + '\n' };
       if (website1) { vcfUrl1 = 'URL:' + website1 + '\n' };
       if (website2) { vcfUrl2 = 'URL:' + website2 + '\n' };
+      if (notes) { vcfNotes = 'NOTE:' + notes + '\n' };
 
       // Footer is always the same
-      vcfFooter = 'VERSION:3.0' + '\n' + 'END:VCARD';
+      vcfFooter = 'END:VCARD';
 
       // Build VCF contact card source
       const data = 
@@ -304,6 +314,7 @@
         vcfTitle +
         vcfUrl1 +
         vcfUrl2 +
+        vcfNotes +
         vcfFooter;
 
       // Output the data as plaintext
