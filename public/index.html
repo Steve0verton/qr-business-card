@@ -127,10 +127,10 @@
             <input class="form-control" type="url" id="website2" name="website2" placeholder="Enter valid URL (including https://)">
           </div>
 
-          <div class="mb-3">
+          <!--<div class="mb-3">
             <label for="notes" class="form-label"><strong>Contact Notes:</strong></label>
             <textarea class="form-control" type="text" id="notes" name="notes" rows="3" maxlength="500"></textarea>
-          </div>
+          </div>-->
 
           <div class="mb-3">
             <button type="submit" class="btn btn-primary">Generate</button>
@@ -231,7 +231,7 @@
       jobTitle = document.getElementById('jobTitle').value.toString().trim();
       website1 = document.getElementById('website1').value.toString().trim();
       website2 = document.getElementById('website2').value.toString().trim();
-      notes = document.getElementById('notes').value.replace(/\n/g, "\\n").toString().trim();
+      // notes = document.getElementById('notes').value.replace(/\n/g, "\\n").toString().trim();
 
       // Build full work and home address
       // Start with line 2 check, if it exists combine with line 1 to add carriage return
