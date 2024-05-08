@@ -13,6 +13,7 @@ Running list of things to do.
 * Add checkbox for "preferred" fields (i.e. phone, email, address)
 * Add birthday
 * Google Maps address lookup validation
+* Figure out why Russian hackers keep trying to redirect the non-HTTPS version of [qrbizcard.net](https://qrbizcard.net)
 
 ## Problems
 
