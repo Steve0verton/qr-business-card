@@ -19,6 +19,12 @@
     gtag('config', 'G-L5T9QTR11L');
   </script>
 
+  <!-- Javascript libraries -->
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="qrcode.min.js"></script>
+
   <!-- Bootstrapped CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -143,10 +149,13 @@
     <div class="row row-gap-3">
       <h2>QR Code</h2>
       <p>Scan this QR code with your phone to test things out. Right click (or long press) on QR code to download and save as an image. Print QR code to use on business card or other shareable locations (ex: back of phone).</p>
-      <div class="container-sm p-3">
-        <img src="https://chart.googleapis.com/chart?cht=qr&chl=Generate+Contact+Info&chs=180x180&chld=L|0" alt="Business Card QR Code" class="qr-code" id="qr-code-image"/>
-      </div>
+      <div id="qrcode"></div>
+      <script type="text/javascript">
+        new QRCode(document.getElementById("qrcode"), "Generate Contact Info");
+      </script>
     </div>
+
+    <br>
 
     <div class="row row-gap-3">
       <h2>QR Code Source</h2>
@@ -163,21 +172,40 @@
         <li><a href="https://en.wikipedia.org/wiki/VCard">vCard Wiki</a></li>
         <li><a href="https://www.linkedin.com/in/overton/">Author Contact</a></li>
         <li><a href="https://github.com/Steve0verton/qr-business-card/issues">Report an Issue or Feature Request</a></li>
+        <li><a href="https://github.com/davidshimjs/qrcodejs">QRCode.js Javascript Library</a></li>
       </ul>
       <p><small>Google Analytics is running on this page to count page views only.  Form collection services provided by Google Analytics are explicitly disabled to avoid storing personally identifiable information.</small></p>
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  <script>  
-    // Form processing
+  <!-- Handles actions on page, form information, building the VCF object and updating the QR Code -->
+  <script>
     // Get form and output elements
     const form = document.getElementById('contactInfo');
     const output = document.getElementById('contactQRsource');
 
-    // Event listener for form submission - executes on each click of Generate button
+    // Clears all content inside the qrcode div element
+    function clearQRCode() {
+      // Get QR Code div element
+      const qrDiv = document.getElementById("qrcode");
+
+      // Clear div content (including QR Code)
+      qrDiv.innerHTML = "";
+    }
+
+    // Clears qrcode div element and generates new QR code
+    function generateQRCode(text) {
+      // Clear previous QR Code
+      clearQRCode();
+
+      // Create a new QRCode object for the target div
+      const qrcode = new QRCode(document.getElementById("qrcode"));
+
+      // Generate the QR code with the provided text
+      qrcode.makeCode(text);
+    }
+
+    // Event listener for generate button
     form.addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent form submission
 
@@ -321,15 +349,17 @@
       output.textContent = data;
       console.log("VCF Contact Card =","\n",data);
 
-      // Update Google API endpoint with contact card source code
-      // FAQ on URLs too long: https://developers.google.com/chart/image/faq?csw=1#url_length
-      let contactQRcode = 
-        'https://chart.googleapis.com/chart?cht=qr&chl=' +
-        encodeURI(data) +
-        '&chs=180x180&chld=L|0';
+      // Regenerate QR Code
+      if (data) {
+          generateQRCode(data);
+      } else {
+        console.log("ERROR: No form data provided!");
+      }
+    });
 
-      // Replace the src of the image with the QR code image
-      $('.qr-code').attr('src', contactQRcode);
+    // Event listener for reset button
+    form.addEventListener('reset', function(event) {
+      clearQRCode();
     });
   </script>
 </body>

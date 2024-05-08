@@ -8,6 +8,7 @@ This project contains source code and a basic HTML page to generate a business c
 - [Contact Syntax Example](#contact-syntax-example)
 - [Author Contact](#author-contact)
 - [Reference](#reference)
+- [Credits](#credits)
 
 ## Purpose
 
@@ -53,3 +54,4 @@ END:VCARD
 ## Credits
 
 - [Bootstrap CSS](https://getbootstrap.com/)
+- [QRCode.js](https://github.com/davidshimjs/qrcodejs)
