@@ -143,6 +143,7 @@
       <script type="text/javascript">
         new QRCode(document.getElementById("qrcode"), "Generate Contact Info");
       </script>
+      <button id="download-qrcode">Download QR Code</button>
     </div>
 
     <br>
@@ -193,6 +194,24 @@
       // Generate the QR code with the provided text
       qrcode.makeCode(text);
     }
+
+    function downloadQRCode() {
+      // Get the QR code image data URL
+      const qrCodeDataURL = document.getElementById("qrcode").querySelector("img").src;
+    
+      // Create a download link
+      const downloadLink = document.createElement('a');
+      downloadLink.href = qrCodeDataURL;
+      downloadLink.download = 'qrbizcard.png';
+    
+      // Trigger the download
+      downloadLink.click();
+    
+      // Remove the download link (optional)
+      document.body.removeChild(downloadLink);
+    }
+
+    document.getElementById("download-qrcode").addEventListener("click", downloadQRCode);
 
     // Event listener for generate button
     form.addEventListener('submit', function(event) {
